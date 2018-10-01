@@ -1,0 +1,52 @@
+<div class="loaderWrp" ng-show="showLoader">
+	<div class="loaderPlane cCeHo cMaTo20 cImCoRe" ng-show="showLoader"></div>
+	</div>
+<div  ng-show="showLoader == false" class="cRel" style="padding: 0px {{padFromSide}}px;">
+    <div ng-hide="addActStatus" style="margin-top: 28px; margin-bottom: 20px;">
+        <div class="activHead activFirstHead cMaBo20" ng-if="weatherDisplayByServer.length > 0">
+            <p>בדקנו בשבילך ומזג האויר הולך להיות {{weatherDisplayByServer}}!</p>
+            <p>אפשר לבחור גם מזג אויר אחר.</p>
+        </div>
+        <div class="activHead activFirstHead cMaBo20" ng-if="weatherDisplayByServer.length == 0">
+            <p>בחר/י מזג אוויר:</p>
+        </div>
+        <!--boxces of forecast-->
+        <!--ng-if="weatherChosen"-->
+        <div data-ng-repeat="item in forecastArray" ng-click="weatherClick(item)" class="caFr cRel forCastBox cTeCen cBoTx myBoxShadow" style="width:{{toFour}}px; height: {{toFour}}px; margin-left:{{betweenFour}}px; padding-top:{{toFour/6}}px;" data-ng-class="{'lastBox':$last,'picked':isPicked(item,'weather')}">
+            <span class="iconfont icon-filter-{{item.id}} headActivIcon" style="font-size:{{toFour/2}}px;"></span>
+            <div class="headActiveText cAbTeCe" style="font-size:{{toFour/5}}px;">{{item.toBe}}</div>
+        </div>
+    </div>
+	
+    <div  ng-hide="addActStatus" class="activHead activSecondHead cMaBo20 caFr cAlWi">
+		אילו פעילויות מתוכננות לנסיעה?
+    </div>
+    <div  ng-show="addActStatus" class="activHead activSecondHead cMaBo20 caFr cAlWi">
+		אילו פעילויות ברצונך להוסיף לרשימה?
+    </div>
+    <div>
+        <!--boxes of activities-->
+        <div data-ng-repeat="item in activArray" ng-click="activityClick(item)" class="caFr cRel myBoxShadow forCastBox cTeCen cBoTx" style="width:{{toThree}}px; height: {{toThree}}px; margin-left:{{betweenThree}}px; margin-bottom:{{betweenThree}}px; padding-top:{{toThree/6}}px;"
+              data-ng-class="{'lastBox':($index+1)%3==0,'picked':item.picked == true}">
+            <span class="iconfont icon-filter-{{item.ID}} headActivIcon" style="font-size:{{toThree/2}}px;"></span>
+            <div class="headActiveText cAbTeCe" style="font-size:{{toThree/7}}px;">{{item.TITLE}}</div>
+        </div>
+    </div>
+    <!--categoryes area-->
+    <div  data-ng-show="catArray && catArray.length>0 ">
+        <div class="activHead activSecondHead cMaBo20 caFr cAlWi">
+			הקטגוריות שלי
+        </div>
+        <!--boxces of activities-->
+        <div>
+            <div data-ng-repeat="item in catArray" ng-click="customCatClick(item)" class="caFr cRel forCastBox cTeCen cBoTx myBoxShadow" style="width:{{toThree}}px; height: {{toThree}}px; margin-left:{{betweenThree}}px; margin-bottom:{{betweenThree}}px; padding-top:{{toThree/6}}px;" data-ng-class="{'lastBox':($index+1)%3==0,'picked':isPicked(item,'customCat')}">
+                <span class="iconfont icon-cat_custom headActivIcon" style="font-size:{{toThree/2}}px;"></span>
+                <div class="headActiveText cAbTeCe" style="font-size:{{toThree/7}}px;">{{item.name}}</div>
+            </div>
+        </div>
+    </div>
+    <!--done-->
+    <button class="done caFr cRe cAlWi" ng-disabled="(activityChosen.length==0 && !addActStatus || weatherChosen.length==0 && !addActStatus)" ng-click="createList()">
+        <span class="" style="font-size: 1.143rem;">{{addActStatus ? 'הוסף פעילויות חדשות' : 'סיימתי, הרכב לי רשימה!'}}</span>
+    </button>
+</div>

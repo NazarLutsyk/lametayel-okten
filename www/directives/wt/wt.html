@@ -1,0 +1,211 @@
+
+
+<div class="direct-wt" ng-show="showWT == true">
+    <div class="btskip" ng-click="skip()">דלג</div>
+
+
+    <!-- Slider main container -->
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper" >
+            <!-- Slides -->
+            <div class="swiper-slide"><div class="inner-picture"></div>
+                <div class="notes">
+                    <p class="note-headline">ברוכים הבאים</p>
+                    <p class="note-middle">לצ'קליסט "למטייל"</p>
+                    <p>רשימת הציוד החכמה שמתאימה</p>
+                    <p>בול לטיול הבא שלכם</p>
+                </div>
+            </div>
+            <div class="swiper-slide"><div class="picture1" ng-class="{'start-animation2' : showAnimate2}"></div>
+                <div class="notes">
+                    <p class="note-headline note-headline-small">איך זה עובד?</p>
+                    <p> <img class="vi" src="./img/vi.png">  <span>   בוחרים יעד, עונה ופעילויות</span> </p>
+                    <p> <img class="vi" src="./img/vi.png"> <span>  צ'קליסט מציעה לכם רשימת פריטים מומלצים</span>  </p>
+                    <p><img class="vi" src="./img/vi.png"> <span>מסמנים את הפריטים שמתאימים לכם ואורזים!</span>   </p>
+                </div>
+            </div>
+            <div class="swiper-slide"  ng-init="initWT()">
+                <div class="picture2"></div>
+                <div class="notes">
+                    <p class="note-headline note-headline-small">לא מספיק?</p>
+                    <p>תוכלו גם: להוסיף כמויות, הערות, תזכורות </p>
+                    <p>ולשתף את הרשימה בקלות!</p>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div ng-if="swiper3">
+        <div class="next" ng-click="understand()">
+            <span class="text2">הבנתי!</span>
+        </div>
+    </div>
+    <div ng-if="!swiper3">
+        <div class="next" ng-click="next()">
+            <span class="text">הבא</span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="preload-images">
+        <img src="./img/page1/page1_00000.png">
+        <img src="./img/page1/page1_00001.png">
+        <img src="./img/page1/page1_00002.png">
+        <img src="./img/page1/page1_00003.png">
+        <img src="./img/page1/page1_00004.png">
+        <img src="./img/page1/page1_00005.png">
+        <img src="./img/page1/page1_00006.png">
+        <img src="./img/page1/page1_00007.png">
+        <img src="./img/page1/page1_00008.png">
+        <img src="./img/page1/page1_00009.png">
+        <img src="./img/page1/page1_00010.png">
+        <img src="./img/page1/page1_00011.png">
+        <img src="./img/page1/page1_00012.png">
+        <img src="./img/page1/page1_00013.png">
+        <img src="./img/page1/page1_00014.png">
+        <img src="./img/page1/page1_00015.png">
+        <img src="./img/page1/page1_00016.png">
+        <img src="./img/page1/page1_00017.png">
+        <img src="./img/page1/page1_00018.png">
+        <img src="./img/page1/page1_00019.png">
+        <img src="./img/page1/page1_00020.png">
+        <img src="./img/page1/page1_00021.png">
+        <img src="./img/page1/page1_00022.png">
+        <img src="./img/page1/page1_00023.png">
+        <img src="./img/page1/page1_00024.png">
+        <img src="./img/page1/page1_00025.png">
+        <img src="./img/page1/page1_00026.png">
+        <img src="./img/page1/page1_00027.png">
+        <img src="./img/page1/page1_00028.png">
+        <img src="./img/page1/page1_00029.png">
+        <img src="./img/page1/page1_00030.png">
+        <img src="./img/page1/page1_00031.png">
+        <img src="./img/page1/page1_00032.png">
+        <img src="./img/page1/page1_00033.png">
+        <img src="./img/page1/page1_00034.png">
+        <img src="./img/page1/page1_00035.png">
+        <img src="./img/page1/page1_00036.png">
+        <img src="./img/page1/page1_00037.png">
+        <img src="./img/page1/page1_00038.png">
+        <img src="./img/page1/page1_00039.png">
+        <img src="./img/page1/page1_00040.png">
+        <img src="./img/page1/page1_00041.png">
+        <img src="./img/page1/page1_00042.png">
+        <img src="./img/page1/page1_00043.png">
+        <img src="./img/page1/page1_00044.png">
+        <img src="./img/page1/page1_00045.png">
+        <img src="./img/page1/page1_00046.png">
+        <img src="./img/page1/page1_00047.png">
+        <img src="./img/page1/page1_00048.png">
+        <img src="./img/page1/page1_00049.png">
+        <img src="./img/page1/page1_00050.png">
+
+
+
+    </div>
+
+    <div class="preload-images">
+        <img src="./img/page2/page2_00000.png">
+        <img src="./img/page2/page2_00001.png">
+        <img src="./img/page2/page2_00002.png">
+        <img src="./img/page2/page2_00003.png">
+        <img src="./img/page2/page2_00004.png">
+        <img src="./img/page2/page2_00005.png">
+        <img src="./img/page2/page2_00006.png">
+        <img src="./img/page2/page2_00007.png">
+        <img src="./img/page2/page2_00008.png">
+        <img src="./img/page2/page2_00009.png">
+        <img src="./img/page2/page2_00010.png">
+        <img src="./img/page2/page2_00011.png">
+        <img src="./img/page2/page2_00012.png">
+        <img src="./img/page2/page2_00013.png">
+        <img src="./img/page2/page2_00014.png">
+        <img src="./img/page2/page2_00015.png">
+        <img src="./img/page2/page2_00016.png">
+        <img src="./img/page2/page2_00017.png">
+        <img src="./img/page2/page2_00018.png">
+        <img src="./img/page2/page2_00019.png">
+        <img src="./img/page2/page2_00020.png">
+        <img src="./img/page2/page2_00021.png">
+        <img src="./img/page2/page2_00022.png">
+        <img src="./img/page2/page2_00023.png">
+        <img src="./img/page2/page2_00024.png">
+        <img src="./img/page2/page2_00025.png">
+        <img src="./img/page2/page2_00026.png">
+        <img src="./img/page2/page2_00027.png">
+        <img src="./img/page2/page2_00028.png">
+        <img src="./img/page2/page2_00029.png">
+        <img src="./img/page2/page2_00030.png">
+        <img src="./img/page2/page2_00031.png">
+        <img src="./img/page2/page2_00032.png">
+        <img src="./img/page2/page2_00033.png">
+        <img src="./img/page2/page2_00034.png">
+        <img src="./img/page2/page2_00035.png">
+        <img src="./img/page2/page2_00036.png">
+        <img src="./img/page2/page2_00037.png">
+        <img src="./img/page2/page2_00038.png">
+        <img src="./img/page2/page2_00039.png">
+        <img src="./img/page2/page2_00040.png">
+        <img src="./img/page2/page2_00041.png">
+        <img src="./img/page2/page2_00042.png">
+        <img src="./img/page2/page2_00043.png">
+        <img src="./img/page2/page2_00044.png">
+        <img src="./img/page2/page2_00045.png">
+        <img src="./img/page2/page2_00046.png">
+        <img src="./img/page2/page2_00047.png">
+        <img src="./img/page2/page2_00048.png">
+        <img src="./img/page2/page2_00049.png">
+        <img src="./img/page2/page2_00050.png">
+        <img src="./img/page2/page2_00051.png">
+        <img src="./img/page2/page2_00052.png">
+        <img src="./img/page2/page2_00053.png">
+        <img src="./img/page2/page2_00054.png">
+        <img src="./img/page2/page2_00055.png">
+        <img src="./img/page2/page2_00056.png">
+        <img src="./img/page2/page2_00057.png">
+
+
+
+    </div>
+
+    <div class="preload-images">
+        <img src="./img/page3/page3_00000.png">
+        <img src="./img/page3/page3_00001.png">
+        <img src="./img/page3/page3_00002.png">
+        <img src="./img/page3/page3_00003.png">
+        <img src="./img/page3/page3_00004.png">
+        <img src="./img/page3/page3_00005.png">
+        <img src="./img/page3/page3_00006.png">
+        <img src="./img/page3/page3_00007.png">
+        <img src="./img/page3/page3_00008.png">
+        <img src="./img/page3/page3_00009.png">
+        <img src="./img/page3/page3_00010.png">
+        <img src="./img/page3/page3_00011.png">
+        <img src="./img/page3/page3_00012.png">
+        <img src="./img/page3/page3_00013.png">
+        <img src="./img/page3/page3_00014.png">
+        <img src="./img/page3/page3_00015.png">
+        <img src="./img/page3/page3_00016.png">
+        <img src="./img/page3/page3_00017.png">
+        <img src="./img/page3/page3_00018.png">
+        <img src="./img/page3/page3_00019.png">
+        <img src="./img/page3/page3_00020.png">
+
+    </div>
+
+</div>
+
+

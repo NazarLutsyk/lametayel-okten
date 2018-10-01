@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html data-ng-app="lametayel">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+    <!--for debug - remove when building-->
+    <!--<script src="localhost:8080/target/target-script-min.js#anonymous"></script>-->
+
+
+    <title>lametayel</title>
+    <!--css-->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+
+    <link rel="stylesheet" type="text/css" href="css/style-wt.css"/>
+
+    <link rel="stylesheet" type="text/css" href="css/gen.css"/>
+    <link href="css/ng-joyride.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/angular-range-slider.css">
+    <link rel="stylesheet" type="text/css" href="http://www.lametayel.co.il/misc/html5/fonts/lam_lists/style.css"/>
+    <link href="css/swiper.css" rel="stylesheet">
+
+    <script src="./js/vendor/modernizr.js"></script> <!-- Modernizr -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css" rel="stylesheet">
+    <link href="./css/angular-material.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="./css/material-datetimepicker.css" type="text/css"/>
+    <link rel="stylesheet" href="./css/bootstrap-combined-notFull.css" type="text/css"/>
+    <link rel="stylesheet" href="./css/bootstrap-datetimepicker.min.css" type="text/css"/>
+
+    <style>
+
+
+        input {
+
+        ::-moz-selection {
+            background: none;
+            color: none;
+        }
+
+        ::selection {
+            background: none;
+            color: none;
+        }
+
+        }
+    </style>
+    <!--<link rel="stylesheet" href="./css/s3.css" type="text/css" />-->
+    <script>
+
+
+        //check -if galaxy 3 -add the correct css
+        if (navigator.userAgent.match(/GT-I9300/i) != null || navigator.userAgent.match(/GT-I9305/i) != null) {
+            var cssId = 'myCss';  // you could encode the css path itself to generate id..
+            if (!document.getElementById(cssId)) {
+                var head = document.getElementsByTagName('head')[0];
+                var link = document.createElement('link');
+                link.id = cssId;
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = './css/s3.css';
+                link.media = 'all';
+                head.appendChild(link);
+            }
+        }
+    </script>
+
+
+</head>
+<body keep-scroll ng-class="{'no-scroll':showItemPage == true}">
+<wt></wt>
+<!-- Body -->
+<header></header>
+<menu></menu>
+<popup></popup>
+
+<div class="page {{pageClass}}" data-ui-view="main"></div>
+<a href="#" style="display: block;" ng-click="openLink(baner.BANNER_URL)"
+   ng-hide="noBanner || $state.is('first-level-list') || $state.is('new-trip') || $state.is('activities') ">
+    <div id="advertisement">
+        <div class="baner" style="background-image: url('{{baner.IMG_SRC}}')"></div>
+    </div>
+</a>
+<!--scripts-->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="cordova_plugins.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    document.addEventListener('deviceready', function () {
+
+        cordova.plugins.notification.local.on('schedule', function (notification) {
+            console.log('onschedule', arguments);
+            // showToast('scheduled: ' + notification.id);
+        });
+
+        cordova.plugins.notification.local.on('trigger', function (notification) {
+            var $body = angular.element(document.body);   // 1
+            var $rootScope = $body.scope().$root;
+            $rootScope.$broadcast('showPopup', {item: notification.text, type: "remind"});
+        });
+        window.ga.startTrackerWithId('UA-1999191-19');
+        var onSuccess = function (result) {
+            //handle result
+            console.log("Init appsFlyer is OK");
+        };
+
+        function onError(err) {
+//                    console.log("Init appsFlyer failed");
+            console.log(err);
+        }
+
+        var options = {
+            devKey: 'BMqyWbbWx2NsXpvXiBY4h6',
+            appId: '1164928192',
+            isDebug: true,
+            onInstallConversionDataListener: true
+        };
+        window.plugins.appsFlyer.initSdk(options, onSuccess, onError);
+    }, false);
+    //document.addEventListener("deviceready",Appsee.start("5ef1b854b5bf4958aa2c18a2bcc29a8e"),false);
+</script>
+
+<script type="text/javascript">
+    //            Todo: remove comment if something is worng
+    //            app.initialize();
+
+</script>
+<script src="./js/vendor/jquery-2.1.4.js"></script>
+<script src="./js/vendor/jquery-ui.js"></script>
+<script src="./js/vendor/touch-punch.js"></script>
+<!--angular-->
+<script src="./js/vendor/angular.min.js"></script>
+<script src="./js/vendor/angular-ui-router.min.js"></script>
+<script src="./js/vendor/angular-animate.min.js"></script>
+<script src="./js/vendor/angular-touch.js"></script>
+<script src="./js/vendor/item-swipe.js"></script>
+<script src="./js/vendor/angular-sanitize.js"></script>
+<script src="./js/vendor/ui-bootstrap-tpls.js"></script>
+<script src="./js/vendor/bootstrap.js"></script>
+
+<script src="./js/vendor/angucomplete-alt.js"></script>
+<script src="./js/vendor/dateformat.js"></script>
+<script src="./js/vendor/sortable.js"></script>
+<script src="./js/ngDraggable.js"></script> <!-- Modernizr -->
+<script src="./js/ui_methods.js"></script>
+<script src="app.js"></script>
+<script src="globals.js"></script>
+
+<script src="./services/generalDetails.js"></script>
+<script src="./services/server.js"></script>
+<script src="./services/share.js"></script>
+<script src="./services/pushnotification.js"></script>
+<script src="./services/analytics.js"></script>
+<script src="./directives/datepickerdirectiveOnlyDate/datepickerdirectiveOnlyDate.js"></script>
+<script src="./directives/datepickerdirectiveOnlyDate/datepickerdirectiveOnlyDate2.js"></script>
+<!--controllers & directives-->
+<script src="./components/new_trip/newtripCtrl.js"></script>
+<script src="./components/activities/activitiesCtrl.js"></script>
+<script src="./components/triplist/triplistCtrl.js"></script>
+<script src="./components/firstLevelList/firstLevelList.js"></script>
+<script src="./components/mylists/mylistsCtrl.js"></script>
+<script src="./components/item/itemCtrl.js"></script>
+<script src="./directives/header/header.js"></script>
+<script src="./directives/menu/menu.js"></script>
+<script src="./directives/popup/popup.js"></script>
+<script src="./directives/wt/wt.js"></script>
+<!--<script src="./directives/wt/wt-animate.js"></script>-->
+<script src="./directives/datepickerdirective/datepickerdirective.js"></script>
+
+
+<script src="./js/vendor/ng-joyride.js"></script>
+<script src="./js/vendor/angular-range-slider.min.js"></script>
+<script src="./js/angular-sanitize.js"></script>
+<script src="./js/vendor/swiper.js"></script>
+<script src="./js/fastclick.js"></script>
+<!--datepicker-->
+<script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+</script>
+<script type="text/javascript" src="./js/bootstrap-datetimepicker.min.js"></script>
+<!--datepicker-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-aria.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.0-rc3/angular-material.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+<script type="text/javascript" src="./js/datepicker/angular-material-datetimepicker.js"></script>
+<script type="text/javascript">
+</script>
+<!--end datepicker-->
+</body>
+</html>

@@ -1,0 +1,149 @@
+.ng-joyride .pull-left {
+    float: left;
+}
+
+.ng-joyride .pull-right {
+    float: right;
+}
+
+.ng-curtain-class {
+    position: fixed;
+    opacity: 0.5;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 9997;
+    display: none;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.ng-joyride-title {
+    z-index: 9998;
+    position: absolute;
+    top: 50%;
+    background: rgba(0,0,0,0.5);
+    width: 90%;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.ng-joyride .skip-class {
+    padding-top: 7px;
+}
+
+.ng-joyride-element-non-static {
+    z-index: 9999;
+    /*box-shadow: 0px 0px 28px 0px rgba(50, 50, 50, 0.75);*/
+}
+
+.ng-joyride-element-static {
+    position: relative;
+    z-index: 9999;
+    background: #F3F3F3;
+    box-shadow: 0px 0px 28px 0px rgba(50, 50, 50, 0.75);
+}
+
+.ng-joyride.popover {
+    z-index: 9998;
+    z-index: 100000000;
+}
+
+.ng-joyride.popover .popover-content {
+    /*width: 90%;*/
+    padding-left: 10px;
+}
+
+.ng-joyride .popover-title {
+    color: white;
+    background: #428bca;
+}
+
+.sharp-borders {
+    border-radius: 0px !important;
+}
+
+.ng-joyride h3.popover-title {
+    line-height: 18px;
+    padding-bottom: 8px;
+}
+
+.ng-joyride-modal.modal {
+    z-index: 9999 !important;
+}
+
+.ng-joyride .btn {
+    border-radius: 0px !important;
+}
+
+
+.popover {
+    max-width: 90%;
+    background: rgba(0,0,0,0.8);
+    border: none;
+    color: #fff;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.popover.left > .arrow:after  {
+    border-left-color: rgba(0,0,0,0.8);
+}
+
+.popover.left > .arrow {
+    border-left-color: transparent;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: rgba(0,0,0,0.8);
+}
+
+.popover.top > .arrow {
+       border-top-color: rgba(0,0,0,0.8);
+}
+
+.popover.top > .arrow:after {
+   /* border-bottom-color: rgba(0,0,0,0.8);
+   border-color: transparent;*/
+    border-top-color: rgba(0,0,0,0.8);
+     border-top-color: transparent;
+    margin: auto;
+}
+
+.popover.bottom > .arrow {
+    border-bottom-color: transparent;
+    margin: auto;
+}
+
+.popover.bottom {
+    margin-top: 0;
+}
+
+.skipBtn {
+    color: #fff;
+}
+
+.prevBtn, .nextBtn {
+    background: #ff9500;
+    color: #fff;
+    width: 60px;
+    padding: 7px 10px;
+    border: 0;
+    outline: 0;
+}
+
+.btn-primary:active:hover, .btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus {
+	background: #ff9500;
+	border: 0;
+    outline: 0;
+}
+
+.joy-ride-icon {
+    width: 20%;
+}
+
+.joy-ride-text {
+    width: 80%;
+    vertical-align: top;
+}

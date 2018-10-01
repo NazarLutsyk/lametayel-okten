@@ -1,0 +1,102 @@
+<div class="cFtoAnRi cAlSi" ng-show="showLoader">
+    <div class="loaderPlane cCeHo cMaTo20 cImCoRe"></div>
+</div>
+
+<div id="first-trip-list">
+    <div class="item-header">
+        <div class="table">
+            <div ng-click="backToList()">
+                <span class="iconfont icon-arrow_back back"></span>
+            </div>
+            <div class="item-title">
+                <span class="enter-item-name item-preferance item-title">{{placeListData.name +' הוספת פרטים'}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="wrap-page-list">
+        <div class="first-level-description">כמעט מסיימים! הנה ההמלצה שלנו לרשימה עבור הטיול ב{{placeListData.name}} הוסף פריטים לרשימה שלך על ידי לחיצה עליהם.</div>
+        <div ng-show="showLoader != true" class="activity"
+			 ng-if="activity.items && activity.items.length > 0 && activity.deleted == false || activity.isCustomCat == true"
+			 ng-repeat="activity in placeListData.list | limitTo: limitLength : repeatFrom"
+			 ng-init="checkBuildDomStatus($last)" ng-class="{'lastActivity':$last}">
+            <div class="activities-title">
+                <span class="iconfont icon-cat icon-cat-{{activity.id}}"></span>
+                <div class="activities-title-wrap">
+                    <span class="activities-title-text">{{activity.name}}</span>
+                    <span style="margin-right: 5px" class="activities-title-text count">
+							{{(activity.items|filter:{checked : true, deleted: false,recomanded : false }).length + '/' + (activity.items|filter:{deleted : false, recomanded : false}).length}}
+                    </span>
+                </div>
+
+
+            </div>
+            <div class="activity-list">
+
+                <div id="{{'recom'+$index}}" class="recommended-items open">
+
+                    <div class="recommended-list" data-index="{{$index}}" id="recommended-{{$index}}">
+
+                        <div ng-click="toggleRecommandedItem(activity,item,$index)" class="recommended-item"
+							 ng-class="{'even':$even, 'was-added': item.recomanded == false,  'was-not-added': !(item.recomanded == false)}"
+							 ng-repeat="item in activity.items  track by $index" style="position:relative;">
+                            <!--'last' : $last && (activity.items).length%2==1,-->
+                            <div style="position:relative; min-height:30px; display:table">
+                                <div class="recomanded-item-name">
+                                    <!--<span class="iconfont icon-add"></span>-->
+                                    <img class="list_icons"
+										 src="{{item.recomanded == false? 'img/added_to_list.svg':'img/add_to_list.svg'}}"
+										 alt="">
+                                    <span class="ee">{{item.name}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <ul class="items-activity-checked" ng-if="checkedListSetting == 'endOfList'">
+                    <li ng-repeat="item in activity.items"
+						ng-if="item.deleted == false && item.checked == true  && item.hidden != true"
+						ng-click="markAsNotPackage(activity,item,$index)">
+                        <span class="iconfont icon-check_box"></span>
+                        <span class="item-checked item-type">{{item.name}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div ng-show="showDeleteItemCancelPoup" class="undo-div cancelDelete-popup" ng-style="undoStyle"
+				 role="button" tabindex="0">
+                <div class="right_side undo-name ng-binding">
+                    {{ editItem.name }} נמחק
+                </div>
+                <div class="left_side undo" ng-click="deleteItemCancel(); $event.stopPropagation();">
+                    <span class="iconfont icon-undo"></span>
+                    <span>בטל</span>
+                </div>
+            </div>
+        </div>
+        <div ng-show="showLoadMoreLoader" class="small-loader"></div>
+
+
+    </div>
+
+    <div class="button-wrap">
+        <button class="done fixed caFr cRe cAlWi" ng-click="goToList()">
+            <span class="v"></span>
+            <span class="" style="font-size: 1.143rem;">{{listDataFromStorage && listDataFromStorage.list ?  'עדכן את הרשימה!' :'הרכב לי רשימה!'}}</span>
+        </button>
+        <div class="done-desc">(אפשר תמיד להוסיף עוד פריטים בהמשך)</div>
+    </div>
+
+</div>
+
+<style type="text/css">
+    .md-dialog-container {
+		background-color : rgba(0, 0, 0, 0.7);
+		z-index          : 100000;
+	}
+	.dtp-header.header {
+		display : none;
+	}
+
+</style>

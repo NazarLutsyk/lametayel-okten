@@ -1,0 +1,39 @@
+<div id="popup" class="cAlSi cFtoAnRi" ng-show="showPopup" style="z-index:20000000000;">
+    <!--inapp browser popup-->
+    <div ng-show="popupType == 'inappBrowser'" class="doubleCheck cAlCeAbs cPaAl10" ng-class="{'open': showPopupLink}" style="z-index: 9999999999;">
+        <div class="doubleCheckHeade cMaTo10 cBoTx cTeCen">הנך מועבר/ת לדפדפן חיצוני</div>
+        <div class="removeButtunsArea">
+            <div class="caFl cTeCen cancelButtun" data-ng-click="goToLink()">אישור</div>
+            <div class="caFl cTeCen cancelButtun" style="background-color:#fff;" data-ng-click="closePopup()">ביטול</div>
+        </div>
+    </div>
+    <!--local notification popup-->
+    <div ng-show="popupType == 'push'" class="doubleCheck cAlCeAbs cPaAl10"  style="z-index: 9999999999;">
+        <div class="doubleCheckHeade cMaTo10 cBoTx cTeCen">תזכורת: <span>{{reminItem}}</span></div>
+        <div class="removeButtunsArea">
+            <div class="caFl cTeCen cancelButtun" data-ng-click="closePopup()">אישור</div>
+
+        </div>
+    </div>
+
+    <div ng-show="popupType == 'slow'" class="doubleCheck cAlCeAbs cPaAl10" style="z-index: 9999999999;">
+        <div class="doubleCheckHeade cMaTo10 cBoTx cTeCen">אנא בדוק את איכות החיבור לרשת
+        </div>
+        <div class="removeButtunsArea">
+            <div class="caFl cTeCen cancelButtun" data-ng-click="closePopup()">אישור</div>
+
+        </div>
+    </div>
+
+    <div ng-show="popupType == 'noNetwork'" class="doubleCheck cAlCeAbs cPaAl10" style="z-index: 9999999999;">
+        <div class="doubleCheckHeade cMaTo10 cBoTx cTeCen">אין חיבור לאינטרנט, התחבר בשנית
+        </div>
+        <div class="removeButtunsArea">
+            <div class="caFl cTeCen cancelButtun" data-ng-click="closePopup()">אישור</div>
+
+        </div>
+    </div>
+
+
+    <!--<div class="overlay" ng-show="showMask" ng-click="hideMask()"></div>-->
+</div>

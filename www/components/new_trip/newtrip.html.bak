@@ -1,0 +1,93 @@
+<div style="padding: 0px {{padFromSide}}px;">
+    <form id="new-trip">
+        <div class="right_side cAlWi">
+            <div class="cMaTo15 cMaBo15">לאן נוסעים?</div>
+            <div id="img_location" class=""><span class="iconfont icon-place" id="location_img"></span></div>
+            <div id="geocomplete">
+                <input autocomplete="off" type="text" placeholder="ברצלונה, ראש פינה, ניו יורק" name="location" ng-model="placeTerm" ng-change="getPlacesByTerm()" />
+                <div class="place-options-wrap">
+                    <div ng-repeat="place in places" class="place-item" ng-click="chosenPlace(place)">{{place.DEST_NAME}}</div>
+                </div>
+                <!--<angucomplete-alt id="ex1" placeholder="ברצלונה, ראש פינה, ניו יורק" selected-object="witchOne" local-data="places" title-field="DEST_NAME" search-fields="DEST_NAME" minlength="1" input-name="location" />-->
+            </div>
+        </div>
+
+        <div class="right_side cAlWi">
+            <div class="input_dates_dis">באילו תאריכים?</div>
+            <div>
+                <div class="dates" id="left_date">
+                    <div class="cAlHe cToAnRi"><span class="iconfont icon-date_range" id="date_img"></span></div>
+                    <input type="date" ng-change="startDate()" data-ng-class="{'goAway':Flages[0]}" ng-blur="doFrom(0,1,dateFrom)" ng-focus="doFrom(0,0,null)" name="date" data-ng-model="dateFrom" class="cRel zi2"></input>
+                    <!--fromFlag-->
+                    <div class="cAlHe dateDef" data-ng-class="{'goAway':!Flages[0]}">ממתי?</div>
+                </div>
+                <div class="dates" style="margin-right:-5px;">
+                    <div class="cAlHe cToAnRi"><span class="iconfont icon-date_range" id="date_img"></span></div>
+                    <input type="date" data-ng-class="{'goAway':Flages[1]}" ng-blur="doFrom(1,1,dateuntil)" ng-focus="doFrom(1,0,null)" name="date" data-ng-model="dateuntil" class="cRel zi2"></input>
+                    <!--fromFlag-->
+                    <div class="cAlHe dateDef" data-ng-class="{'goAway':!Flages[1]}">עד מתי?</div>
+                </div>
+                
+            </div>
+            <div class="validation-message">{{validMessage}}</div>
+        </div>
+
+        <div class="right_side cAlWi">
+            <div class="input_dates_dis">מי אנחנו?</div>
+            <div ng-repeat="person in people" class="item_person person myBoxShadow" ng-click="choosePerson(person,$index)" style="width:{{toFour}}px; margin-left:{{betweenFour}}px; padding-top:{{toFour/6}}px;" ng-class="{'lastBox':$last,'picked':personPicked[$index] == true}">
+                <div class="person_img"><span class="iconfont icon-filter-{{person.ID}}"></span></div>
+                <div class="person_dis" style="font-size:{{toFour/5}}px;">{{person.TITLE}}</div>
+            </div>
+        </div>
+
+        <div class="right_side cAlWi">
+            <button class="newTrip new_list" ng-click="goToActivities()" ng-disabled="canGoNext == false">
+                <span class="next">הבא</span><span class="iconfont icon-arrow_back next"></span>
+            </button>
+        </div>
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<script>
+                                    $(function(){
+    
+                                      $("#geocomplete").geocomplete()
+                                        .bind("geocode:result", function(event, result){
+                                          $.log("Result: " + result.formatted_address);
+                                        })
+                                        .bind("geocode:error", function(event, status){
+                                          $.log("ERROR: " + status);
+                                        })
+                                        .bind("geocode:multiple", function(event, results){
+                                          $.log("Multiple: " + results.length + " results found");
+                                        });
+    
+                                      $("#find").click(function(){
+                                        $("#geocomplete").trigger("geocode");
+                                      });
+    
+    
+                                      $("#examples a").click(function(){
+                                        $("#geocomplete").val($(this).text()).trigger("geocode");
+                                        return false;
+                                      });
+    
+                                    });
+                                </script>-->

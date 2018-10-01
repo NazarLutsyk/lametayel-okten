@@ -1,0 +1,193 @@
+lametayel.controller('newtripCtrl', ['$scope', '$http', '$timeout', '$stateParams', '$state', '$rootScope', 'server', function ($scope, $http, $timeout, $stateParams, $state, $rootScope, server) {
+    $rootScope.mylist = false;
+    $scope.pageClass = 'page-new-trip';
+    $scope.personPicked = [];
+    $scope.witchOne = '';
+    $scope.stopCalc = false;
+    $scope.padFromSide = 13;
+    $scope.Flages = [true, true];
+    $scope.canGoNext = false;
+    $scope.widthScreen = window.innerWidth - $scope.padFromSide * 2;
+    $scope.validMessage = "";
+    if ($scope.widthScreen % 2 == 1) {
+        $scope.widthScreen = $scope.widthScreen - 1;
+    }
+    $scope.betweenFour = 4;
+    $scope.betweenThree = 10;
+    //pick the width and height of the boxces in the page
+    while (!$scope.stopCalc) {
+        if (($scope.widthScreen - 2 * $scope.betweenThree) % 3 == 0 && ($scope.widthScreen) % 4 == 0) {
+            $scope.stopCalc = true;
+            $scope.toFour = ($scope.widthScreen - 3 * $scope.betweenFour) / 4;
+            $scope.toThree = ($scope.widthScreen - 2 * $scope.betweenThree) / 3;
+        } else {
+            $scope.widthScreen = $scope.widthScreen - 2;
+            $scope.padFromSide = $scope.padFromSide + 1;
+        }
+    }
+
+    $scope.initListData = function () {
+        //get the travelers -types
+        server.request("api_packing_list_get_filters", "&token=" + $rootScope.token + "&type=gender&&data_type=json").then(function (data) {
+            console.log(data.FILTERS.FILTER);
+            $scope.people = data.FILTERS.FILTER;
+        });
+
+
+
+    }
+    $scope.initListData()
+   $scope.startDate = function(){
+                $scope.dateuntil = $scope.dateFrom;
+      }
+                                     
+                                     
+    $scope.checkAllFieldsFilled = function () {
+        var completed = true;
+
+        //if there is no people chosen
+        if ($.inArray(true, $scope.personPicked) == -1) {
+            $scope.canGoNext = false;
+            completed = false;
+            return false;
+
+        }
+        ////if there is no date
+        if (!$scope.dateFrom || !$scope.dateuntil) {
+            $scope.canGoNext = false;
+            $scope.validMessage = ""
+            completed = false;
+            return false;
+
+        }
+        //if the date is without value
+        else if ($scope.dateFrom.length == 0 || $scope.dateuntil.length == 0) {
+            $scope.canGoNext = false;
+            $scope.validMessage = ""
+            completed = false;
+            return false;
+        }
+        //if the until date is befor the from date
+        if ($scope.dateuntil.getTime() < $scope.dateFrom.getTime()) {
+            $scope.canGoNext = false;
+            completed = false;
+            $scope.validMessage = 'תאריך העזיבה צריך להיות לאחר תאריך ההגעה'
+            return false;
+        }
+        else if ($scope.dateuntil.getTime() >= $scope.dateFrom.getTime()) {
+            $scope.validMessage = ""
+        }
+        if (completed == true) {
+            $scope.validMessage = ""
+            $scope.canGoNext = true;
+        }
+        //to do: prevent contimnue if the place not chosen and if the user edit the place that he chose
+        if (!$scope.chosenPlaceData || !$scope.chosenPlaceData.DEST_NAME) {
+            $scope.canGoNext = false;
+            completed = false;
+            return false;
+        }
+
+    }
+
+    $scope.goToActivities = function () {
+        if ($scope.canGoNext == false) {
+            alert('עליך להשלים את כל המידע הנדרש על מנת להתקדם')
+        }
+        else {
+            var peopleCsv = "";
+            $.each($scope.personPicked, function (key, value) {
+                if (value) {
+                    peopleCsv += parseFloat(key + 1) + ',';
+                }
+            });
+            //placetid: $scope.chosenPlaceData.DEST_TID
+            $state.transitionTo('activities', { placetid: $scope.chosenPlaceData.DEST_TID, placename: $scope.chosenPlaceData.DEST_NAME, datefrom: dateFormat($scope.dateFrom, "dd.mm.yyyy"), dateuntil: dateFormat($scope.dateuntil, "dd.mm.yyyy"), people: peopleCsv, placeurl: $scope.chosenPlaceData.URL,isnewList: true });
+        }
+
+    }
+
+    $scope.choosePerson = function (person, i) {
+
+        $scope.personPicked[i] = !$scope.personPicked[i];
+        $scope.checkAllFieldsFilled()
+    }
+
+    $scope.doFrom = function (index, num, checker) {
+        switch (num) {
+            case 1:
+                if (!checker) {
+                    $timeout(function () {
+                        $scope.Flages[index] = true;
+                    }, 0);
+                }
+                break;
+            case 0:
+                $timeout(function () {
+                    $scope.Flages[index] = false;
+                }, 0);
+                break;
+        }
+        var x;
+        $scope.checkAllFieldsFilled()
+
+    }
+
+
+    $scope.getPlacesByTerm = function () {
+        if ($scope.placeTerm.length > 2) {
+            server.request("api_dest_autocomplete", "&token=" + $rootScope.token + "&term=" + $scope.placeTerm + "&types=1,2,3&il=1&data_type=json").then(function (data) {
+                var x = data;
+                console.log(x);
+                $scope.places = data.dests.dest;
+                //if the user chose a place that not exist in the database
+                if (!$scope.places) {
+                    //can't going on
+                    $scope.canGoNext = false
+                    $scope.chosenPlaceData = undefined;
+                    $scope.placeTerm = undefined
+                }
+
+            });
+        }
+        else {
+            $scope.places = []
+        }
+
+
+    }
+    $scope.chosenPlace = function (item) {
+        //set the place name as the chosen place
+        $scope.chosenPlaceData = item;
+        $scope.placeTerm = item.DEST_NAME
+        $rootScope.isIsraelTravel = item.DEST_PARENT_TID == $rootScope.israelTid  || item.DEST_TID == $rootScope.israelTid ? true : false; 
+        //clean the places list
+        $scope.places = []
+        $scope.checkAllFieldsFilled()
+    }
+} ])
+
+
+$.log = function (message) {
+    var $logger = $("#logger");
+    $logger.html($logger.html() + "\n * " + message);
+}
+
+/*
+document.getElementById("item_list").addEventListener("click", function (e) {
+var target = e.target;
+
+target.classList.toggle("iconize");
+target.classList.toggle("iconize2");
+}, false);
+*/
+
+//$scope.people = [
+//    { "id": "1", "type": "אישה", "img": "img/woman-user-icon.png", "img-onClick": "img/woman-user-icon.png" },
+//    { "id": "2", "type": "גבר", "img": "img/man-icon.png", "img-onClick": "img/man-icon.png" },
+//    { "id": "3", "type": "ילד", "img": "img/icon-child.png", "img-onClick": "img/icon-child.png" },
+//    { "id": "4", "type": "תינוק", "img": "img/baby.png", "img-onClick": "img/baby.png" }
+//];
+
+
+// $scope.places = [{ DEST_NAME: 'ברצלונה' }, { DEST_NAME: 'איסטנבול' }, { DEST_NAME: 'רומא' }, { DEST_NAME: 'ניו-יורק' }, { DEST_NAME: 'בולטימור' }, { DEST_NAME: 'בנקוק' }, { DEST_NAME: 'טוקיו' }, { DEST_NAME: 'לונדון' }, { DEST_NAME: 'סן-פרנסיסקו' }, { DEST_NAME: 'אילת' }, { DEST_NAME: 'קהיר' }, { DEST_NAME: 'עמאן' }, { DEST_NAME: 'פריז' }, { DEST_NAME: 'מינכן' }, { DEST_NAME: 'ברטיסלבה' }, { DEST_NAME: 'צענה' }, { DEST_NAME: 'ציריך' }, { DEST_NAME: 'פומפיי'}];

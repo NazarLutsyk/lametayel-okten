@@ -1,0 +1,104 @@
+<div style="padding: 0px {{padFromSide}}px;">
+    <form id="new-trip">
+        <div class="right_side cAlWi">
+            <div class="wereGoing">לאן נוסעים?</div>
+            <div class="geocomplete-wrap" ng-click="gofocus(0)">
+                <div id="img_location" class=""><span class="iconfont icon-place" id="location_img"></span></div>
+                <div id="geocomplete" class="cgeocomplete">
+                    <div class="geoplaceholder cToAnRi" ng-hide="placeTerm.length>0 || inputFocus">ברצלונה, ראש פינה, ניו יורק</div>
+                    <input ng-class="{'autocomplete': inputFocus,'valid-border':showPlaceValidation}" autocomplete="off" type="text" ng-focus="getInputFocus()" ng-blur="getInputBlur()" placeholder="" name="location" ng-model="placeTerm" class="geoInput" ng-change="getPlacesByTerm()" />
+                    <div class="place-options-wrap" ng-show="showAutocomplete"  ng-class="{'place-options-wrap-shadow':shadow}">
+                        <div class="place-item choosePlace" ><span>בחרו יעד מהרשימה</span><span class="spiner" ng-show="showSpiner"></span></div>
+                        <div ng-repeat="place in places" class="place-item" ng-click="chosenPlace(place)">{{place.DEST_DISPLAY_NAME}}</div>
+                    </div>
+                    <!--<angucomplete-alt id="ex1" placeholder="ברצלונה, ראש פינה, ניו יורק" selected-object="witchOne" local-data="places" title-field="DEST_NAME" search-fields="DEST_NAME" minlength="1" input-name="location" />-->
+                </div>
+                
+            </div>
+            <div class="validation-message" ng-show="showPlaceValidation">בחר יעד מהרשימה</div>
+        </div>
+
+        <!--<div class="right_side cAlWi">
+            <div class="wereGoing">למי הרשימה?</div>
+            <div class="geocomplete-wrap">
+                <div id="img_location" class=""><span class="iconfont icon-place" id="location_img"></span></div>
+                <div id="geocomplete" class="cgeocomplete">
+                    <div ng-click="gofocus(1)" class="geoplaceholder cToAnRi" ng-hide="who.length>0 || whoFocus">לעצמי או ציין שם</div>
+                    <input ng-class="{'autocomplete': whoFocus}" autocomplete="off" type="text" ng-focus="whoFocus = true" ng-blur="whoFocus = false" placeholder="" name="who" ng-model="who" ng-change="" class="geoInput" />
+                </div>
+            </div>
+
+        </div>-->
+
+
+        <div class="right_side cAlWi">
+            <div class="input_dates_dis">באילו תאריכים?</div>
+            <div>
+                <div class="dates caFr" id="left_date">
+                    <div class="cAlHe cToAnRi"><span class="iconfont icon-date_range" id="date_img"></span></div>
+                    <!--<input type="date" data-ng-class="{'goAway':dateChosenArr[0]}" ng-blur="doFrom(0,1,dateFrom)" ng-focus="doFrom(0,0,null)" name="date"  data-ng-model="dateFrom" class="cRel zi2" ng-change="startDate()" ></input>-->
+                    <datepickerdirective-date type="from"></datepickerdirective-date>
+                    <span class="date-text item-type" ng-hide="!dateFromStringToDisplay"><span>{{dateFromStringToDisplay}}</span></span>
+                    <!--fromFlag-->
+                    <div class="cAlHe dateDef" data-ng-class="{'goAway':!(dateFromStringToDisplay == undefined ||  dateFromStringToDisplay.length == 0), 'valid-border':dateFromValidation}">ממתי?</div>
+                     <div class="validation-message date-validation" ng-show="dateFromValidation">בחרו תאריך יציאה</div>
+                </div>
+                <div class="dates caFl" style="margin-right:-5px;">
+                    <div class="cAlHe cToAnRi"><span class="iconfont icon-date_range" id="date_img"></span></div>
+                    <!--<input type="date"  ng-change="dateUntilChange()" data-ng-class="{'goAway':dateChosenArr[1]}" ng-blur="doFrom(1,1,dateuntil)" ng-focus="doFrom(1,0,null)" name="date" data-ng-model="dateuntil" class="cRel zi2"></input>-->
+                    <datepickerdirective-date-two type="until"></datepickerdirective-date-two>
+                    <span class="date-text item-type" ng-hide="!dateUntilStringToDisplay"><span class="until">{{dateUntilStringToDisplay}}</span></span>
+                    <!--fromFlag-->
+                    <div class="cAlHe dateDef" data-ng-class="{'goAway':!(dateUntilStringToDisplay == undefined ||  dateUntilStringToDisplay.length == 0), 'valid-border':dateUntilValidation}">עד מתי?</div>
+                     <div class="validation-message date-validation" ng-show="dateUntilValidation">בחרו תאריך חזרה</div>
+                </div>
+
+            </div>
+            <div class="validation-message">{{validMessage}}</div>
+        </div>
+
+        <div class="right_side cAlWi paUp40">
+            <div class="cMaBo15">למי אורזים?</div>
+            <div ng-repeat="person in people" class="item_person person myBoxShadow" ng-click="choosePerson(person,$index)" style="width:{{toFour}}px; margin-left:{{betweenFour}}px; padding-top:{{toFour/6}}px;" ng-class="{'lastBox':$last,'picked':personPicked[$index] == true}">
+                <div class="person_img"><span class="iconfont icon-filter-{{person.ID}}"></span></div>
+                <div class="person_dis" style="font-size:{{toFour/5}}px;">{{person.TITLE}}</div>
+            </div>
+             <div class="validation-message" ng-show="showPeopleValidation">אנא בחר למי אורזים</div>
+        </div>
+
+        <div class="right_side cAlWi">
+            <div style="font-size: 1.143rem;" class="newTrip new_list cDiTa cDirLtr" ng-click="goToActivities()" ng-class="{'disable':canGoNext == false}">
+                <span class="iconfont icon-arrow_forward cVerMid"></span>
+                <span class="cVerMid rightNext">הבא</span>
+            </div>
+             <div class="validation-message general" ng-show="showGeneralValidation">השלימו את פרטי הטיול החסרים</div>
+        </div>
+
+    </form>
+</div>
+    <!--<script>
+                                                                        $(function(){
+    
+                                                                          $("#geocomplete").geocomplete()
+                                                                            .bind("geocode:result", function(event, result){
+                                                                              $.log("Result: " + result.formatted_address);
+                                                                            })
+                                                                            .bind("geocode:error", function(event, status){
+                                                                              $.log("ERROR: " + status);
+                                                                            })
+                                                                            .bind("geocode:multiple", function(event, results){
+                                                                              $.log("Multiple: " + results.length + " results found");
+                                                                            });
+    
+                                                                          $("#find").click(function(){
+                                                                            $("#geocomplete").trigger("geocode");
+                                                                          });
+    
+    
+                                                                          $("#examples a").click(function(){
+                                                                            $("#geocomplete").val($(this).text()).trigger("geocode");
+                                                                            return false;
+                                                                          });
+    
+                                                                        });
+                                                                    </script>-->

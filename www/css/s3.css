@@ -1,0 +1,85 @@
+/*@media screen and (device-width: 720px) and (device-height: 1280px) {*/
+.note-middle {
+    font-size: 24px;
+    padding-bottom: 13px;
+}
+
+.note-headline {
+    font-size: 29px;
+    padding-top: 39px;
+    padding-bottom: 10px;
+}
+
+.notes {
+    font-size: 17px;
+    padding: 0 5%;
+}
+
+.swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+}
+
+.notes p {
+    line-height: 25px;
+}
+
+
+
+.btskip {
+    font-size: 17px;
+    height: 10%;
+}
+
+.next .text, .text2 {
+    font-size: 23px;
+    line-height: 280%;
+    display: inline-block;
+}
+
+.notes {
+    font-size: 17px;
+}
+
+.notes p span {
+    font-size: 16px;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    height: 12%;
+    padding-top: 20px;
+}
+
+.vi {
+    width: 14px;
+}
+
+.inner-picture {
+    background-image: url(../img/page1/page1_00050.png);
+}
+
+.picture1 {
+    background-image: url(../img/page2/page2_00047.png);
+}
+
+.picture2 {
+    background-image: url(../img/page3/page3_00020.png);
+}
+
+.preload-images {
+    display: none;
+}
+
+.preload-images img {
+    display: none;
+}
+
+.first-level-description {
+   
+    padding: 30px 20px;
+   
+}
+.button-wrap{
+    left: 0
+}
+/*}*/
