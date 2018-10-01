@@ -1,0 +1,7 @@
+{
+  "name": "lametaiel-ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
