@@ -1,0 +1,125 @@
+* {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+.cDirLtr {direction: ltr;}
+.cDirRtl {direction: rtl;}
+.cNoBack {background:none;}
+.cCeHo { position: relative; margin-left: auto; margin-right: auto;}
+.cAbs {position: absolute;}
+.cInitPos {position: initial;}
+.cRel { position: relative;}
+.cBloker { display: block;}
+.cAbsRight { right: 0px;}
+.cAbsLeft { left: 0px;}
+.cAbTeCe {left: 0px; right:0px; position:absolute; margin-left: auto; margin-right: auto;}
+.cToAnRi {position: absolute; top: 0px;right: 0px;}
+.cToAnLe {position: absolute;top: 0px;left: 0px;}
+.cBoAnRi {position: absolute; bottom: 0px;right: 0px;}
+.cBoAnLe {position: absolute;bottom: 0px;left: 0px;}
+.cCenVer {margin-top: auto; margin-bottom: auto; top: 0px;bottom: 0px;position: absolute;}
+.cAlCeAbs { position: absolute; top: 0px;bottom: 0px;  right: 0px;  left: 0px; margin: auto;}
+.cDiTa { display: table;}
+.veTop {vertical-align: top;}
+.cVerMid {display: table-cell; vertical-align: middle;}
+.cInliners {display: inline-block; margin-right: -4px; vertical-align: top;}
+.cRegInliners {display: inline-block; margin-right: 0px; vertical-align: top;}
+.cFInliners {display: inline-block; margin-right: 0px; vertical-align: top;}
+.cSpecCenterFather {display: -webkit-box; -webkit-box-pack: center;  -webkit-box-align: center;position: absolute;width: 100%;height: 100%;}
+.cSpecCenterSon { -webkit-box-sizing: border-box; height: auto;}
+/***************text*************/
+.cTeLe {text-align: left;}
+.cTeRi {text-align: right;}
+.cTeCen {text-align: center;}
+.cBoTx {font-weight: bold;}
+.cTxEl {white-space: nowrap; overflow: inherit; text-overflow: ellipsis; overflow: hidden; }
+.cWhTe {color: #fff;}
+.cBlTe {color: #000;}
+.cTeUn {text-decoration: underline;}
+/************backgroung img*******/
+.cImg-reg {background-repeat: no-repeat;background-position: center;}
+.cImgCov {background-size: cover;background-repeat: no-repeat;background-position: center;}
+.cBackgroundImgGetSize { background-size: 100% 100%; background-repeat: no-repeat;background-position: center;}
+.cImgCon {background-size: contain;}
+.cNoRepeat {background-repeat: no-repeat;}
+.cImgCen {background-position: center; background-repeat: no-repeat;}
+.cImCoRe { background-repeat: no-repeat; background-position: center; background-size: contain;}
+.cBcImRiAnTo {background-repeat: no-repeat; background-position: top right;}
+.cBcImRiAnCe {background-repeat: no-repeat; background-position: center right;}
+.cBcImLeAnTo {background-repeat: no-repeat; background-position: top right;}
+.cBcImLeAnCe {background-repeat: no-repeat; background-position: center left;}
+.cPosRAc {background-repeat: no-repeat; background-position: right center;}
+.cPosLAc {background-repeat: no-repeat; background-position: left center;}
+.cBackWhite {background-color:#fff;}
+/**************sizes***************/
+.cAlWi { width: 100%;}
+.cAlHe {  height: 100%;}
+.cAlSi {width: 100%;height: 100%;}
+.cTet { resize: none;}
+.cHeAu {min-height:100%;height:auto;}
+/******overflow*******/
+.caOvAuto { overflow: auto;}
+.caOvHidden { overflow: hidden;}
+.caOv-scroll { overflow: scroll;}
+.caOvOnly-x { overflow-x: auto; overflow-y: hidden;}
+.caOvOnly-y {overflow-x: hidden;overflow-y: auto;}
+/**************margins***************/
+.cMaTo5 {margin-top: 5px;}
+.cMaTo10 {margin-top: 10px;}
+.cMaTo15 {margin-top: 15px;}
+.cMaTo20 {margin-top: 20px;} 
+.cMaBo5 {margin-bottom: 5px;}
+.cMaBo10 {margin-bottom: 10px;}
+.cMaBo15 {margin-bottom: 15px;}
+.cMaBo20 {margin-bottom: 20px;}
+/**************paddings***************/
+.cPaTo5 {padding-top: 5px;}
+.cPaTo10 {padding-top: 10px;}
+.cPaTo15 {padding-top: 15px;}
+.cPaTo20 {padding-top: 20px;}
+.cPaRi5 { padding-right: 5px;}
+.cPaRi10 {padding-right: 10px;}
+.cPaRi15 {padding-right: 15px;}
+.cPaRi20 {padding-right: 20px;}
+.cPaLe5  {padding-left: 5px;}
+.cPaLe10 {padding-left: 10px;}
+.cPaLe15 {padding-left: 15px;}
+.cPaLe20 {padding-left: 20px;}
+.cPaBo5 {padding-bottom: 5px;}
+.cPaBo10 {padding-bottom: 10px;}
+.cPaBo15 {padding-bottom: 15px;}
+.cPaBo20 {padding-bottom: 20px;}
+.cPaTA5 {padding-top: 5px;padding-bottom: 5px;}
+.cPaTA10 {padding-top: 10px;padding-bottom: 10px;}
+.cPaTA15 {padding-top: 15px;padding-bottom: 15px;}
+.cPaTA20 {padding-top: 20px;padding-bottom: 20px;}
+.cPaRA5  {padding-right: 5px; padding-left: 5px;}
+.cPaRA10 {padding-right: 10px;padding-left: 10px;}
+.cPaRA15 {padding-right: 15px;padding-left: 15px;}
+.cPaRA20 {padding-right: 20px;padding-left: 20px;}
+.cPaAl5 {padding: 5px;}
+.cPaAl8 {padding: 8px;}
+.cPaAl10 {padding: 10px;}
+.cPaAl13 {padding: 13px;}
+.cPaAl15 {padding: 15px;}
+.cPaAl20 {padding: 20px;}
+.cPaAl25 {padding: 25px;}
+/************fixed**************/
+.cFtoAnRi {position: fixed; top: 0px;right: 0px;}
+.ctoAnLe {position: fixed;top: 0px;left: 0px;}
+.cFbAndRi {position: fixed; bottom: 0px;right: 0px;}
+.cFbAnLe {position: fixed;bottom: 0px;left: 0px;}
+.cFiRi {position: fixed; right: 0px;}
+/********************z-index*****************/
+.zi0 {z-index:0;} 
+.zi1 {z-index:1;}
+.zi2 {z-index:2;}
+.zi3 {z-index:3;}
+.zi4 {z-index:4;}
+.zi5 {z-index:5;}
+.zi6 {z-index:6;}
+.zi7 {z-index:7;}
+/******************float*****************/
+.caFr {float:right;}
+.caFl {float:left;}
+/****display none****/
+.caNon {display: none;}
+/*******input place holder styler*********/
+

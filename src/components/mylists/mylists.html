@@ -1,0 +1,114 @@
+<div class="emptyListPage" ng-if="(!placesList || placesList.length == 0)">
+
+
+
+    <img src="img/suitcase.png" class="page_img" />
+    <div class="page_dis">
+        <p>לכל טיול מושלם צריך רשימת ציוד מושלמת!</p>
+        <p>בואו ניצור רשימה שמותאמת בדיוק בשבילך</p>
+    </div>
+    <div class="new_list make-new-list">
+        <div ng-click="makeNewTrip()">
+       + רשימה חדשה
+        </div>
+    </div>
+</div>
+<div class="fullListPage" ng-if="(placesList && placesList.length > 0)">
+
+    <div class="scrollPage">
+        <div class="myListOverlay cFtoAnRi cAlSi" ng-if="showOver" ng-click="closeinner()"></div>
+        <div ng-repeat="item in placesList track by item.id" class="trip_list">
+            <div class="trip_item" ng-style="{'background-image':'url('+item.img+')'}" ng-click="goToList(item)">
+                <div class="inner-trip_item cAlSi cBackgroundImgGetSize">
+                    <span ng-click="openCatMenu(item,$index,$event)" class="iconfont icon-more_vert left_side vertical_dots"></span>
+                    <div class="place">{{item.name}}</div>
+                    <div class="who-text">{{item.who}}</div>
+                    <div class="">{{item.startDate}} - {{item.endDate}}
+                    </div>
+                    <!--<div class="prog_bar">
+                        <span class="iconfont icon-check_box" id="img_prog"></span>
+                        <div id="myProgress">
+                            <div id="myBar" ng-style="{'width': initCompletePercents(item) + '%' }">
+                                <div ng-if="item.percent >= 25">{{item.percent}}%</div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="list-menu" ng-class="{'open':openMenuIndex == $index}" id="list-menu-{{$index}}">
+                <ul>
+                    <li ng-click="removeListClick(item)">מחיקת רשימה</li>
+                    <li ng-click="duplicateListClick(item)">שכפול רשימה</li>
+                    <li ng-click="closeCatMenu();sharePlaceGeneral(item)">שיתוף רשימה</li>
+                    <li ng-click="closeCatMenu();updateNameAndDate(item)">שינוי שם ותאריך</li>
+                </ul>
+            </div>
+        </div>
+        <div class="new_list make-list" ng-click="makeNewTrip()">
+            <div>
+       + רשימה חדשה
+            </div>
+        </div>
+        <div class="doubleCheck delete cPaAl10" ng-class="{'open':showDoubleCheck}">
+            <div class="doubleCheckHeade cBoTx">רק מוודאים...</div>
+            <div class="doubleCheckContent cMaTo20 cMaBo5" style="font-size:1.143rem">האם למחוק את הרשימה?</div>
+            <div class="removeButtunsArea">
+                <div class="caFl cTeCen removeButtun" data-ng-click="getItOut()">מחיקה</div>
+                <div class="caFl cTeCen cancelButtun" data-ng-click="closeDoubleCheck()">ביטול</div>
+            </div>
+        </div>
+
+
+        <!-- update place name and date popup -->
+        <div ng-show="showUpdatePoup" class="update-listPopup-withScroll">
+        <div class="update-listPopup">
+            <div class="update-popup-title">שינוי שם ותאריך</div>
+            <div class="wereGoing">לאן נוסעים?</div>
+            <div class="geocomplete-wrap">
+                <div id="img_location" class=""><span class="iconfont icon-place" id="location_img"></span></div>
+                <div id="geocomplete" class="cgeocomplete">
+                    <div ng-click="gofocus(0)" class="geoplaceholder cToAnRi" ng-hide="placeTerm.term.length>0 || inputFocus">ברצלונה, ראש פינה, ניו יורק</div>
+                    <input ng-class="{'autocomplete': inputFocus,'valid-border':showPlaceValidation}" autocomplete="off" type="text" ng-focus="getInputFocus()" ng-blur="getInputBlur()" placeholder="" name="location" ng-model="placeTerm.term" class="geoInput" ng-change="getPlacesByTerm()" />
+                    <div class="place-options-wrap place-options-wrap-shadow" ng-show="showAutocomplete" >
+                        <div class="place-item choosePlace"><span>בחרו יעד מהרשימה</span><span class="spiner" ng-show="showSpiner"></span></div>
+                        <div ng-repeat="place in places" class="place-item" ng-click="chosenPlace(place)">{{place.DEST_DISPLAY_NAME}}</div>
+                    </div>
+                    <!--<angucomplete-alt id="ex1" placeholder="ברצלונה, ראש פינה, ניו יורק" selected-object="witchOne" local-data="places" title-field="DEST_NAME" search-fields="DEST_NAME" minlength="1" input-name="location" />-->
+                </div>
+
+            </div>
+            <div class="validation-message" ng-show="showPlaceValidation">בחר יעד מהרשימה</div>
+            <div class="right_side cAlWi">
+                <div class="input_dates_dis">באילו תאריכים?</div>
+                <div>
+                    <div class="dates caFr" id="left_date">
+                        <div class="cAlHe cToAnRi"><span class="iconfont icon-date_range" id="date_img"></span></div>
+                        <!--<input type="date" data-ng-class="{'goAway':dateChosenArr[0]}" ng-blur="doFrom(0,1,dateFrom)" ng-focus="doFrom(0,0,null)" name="date"  data-ng-model="dateFrom" class="cRel zi2" ng-change="startDate()" ></input>-->
+                        <datepickerdirective-date type="from"></datepickerdirective-date>
+                        <span class="date-text item-type" ng-hide="!dateFromStringToDisplay"><span>{{dateFromStringToDisplay}}</span></span>
+                        <!--fromFlag-->
+                        <div class="cAlHe dateDef" data-ng-class="{'goAway':!(dateFromStringToDisplay == undefined ||  dateFromStringToDisplay.length == 0), 'valid-border':showPlaceValidation}">ממתי?</div>
+                        <div class="validation-message date-validation" ng-show="dateFromValidation">בחרו תאריך יציאה</div>
+                    </div>
+                    <div class="dates caFl" style="margin-right:-5px;">
+                        <div class="cAlHe cToAnRi"><span class="iconfont icon-date_range" id="date_img"></span></div>
+                        <!--<input type="date"  ng-change="dateUntilChange()" data-ng-class="{'goAway':dateChosenArr[1]}" ng-blur="doFrom(1,1,dateuntil)" ng-focus="doFrom(1,0,null)" name="date" data-ng-model="dateuntil" class="cRel zi2"></input>-->
+                        <datepickerdirective-date-two type="until"></datepickerdirective-date-two>
+                        <span class="date-text item-type" ng-hide="!dateUntilStringToDisplay"><span class="until">{{dateUntilStringToDisplay}}</span></span>
+                        <!--fromFlag-->
+                        <div class="cAlHe dateDef" data-ng-class="{'goAway':!(dateUntilStringToDisplay == undefined ||  dateUntilStringToDisplay.length == 0), 'valid-border':showPlaceValidation}">עד מתי?</div>
+                        <div class="validation-message date-validation" ng-show="dateUntilValidation">בחרו תאריך חזרה</div>
+                    </div>
+
+                </div>
+                <div class="validation-message">{{validMessage}}</div>
+            </div>
+
+            <div class="removeButtunsArea">
+                <div class="caFl cTeCen removeButtun" data-ng-click="saveChanges()">אישור</div>
+                <div class="caFl cTeCen cancelButtun" data-ng-click="closeUpdateDatePopup()">ביטול</div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

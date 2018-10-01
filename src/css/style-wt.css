@@ -1,0 +1,1608 @@
+body {
+}
+
+@-moz-keyframes animation {
+    1.9% {
+        background-image: url(../img/page1/page1_00000.png);
+    }
+
+    3.8% {
+        background-image: url(../img/page1/page1_00001.png);
+    }
+
+    5.7% {
+        background-image: url(../img/page1/page1_00002.png);
+    }
+
+    7.6% {
+        background-image: url(../img/page1/page1_00003.png);
+    }
+
+    9.5% {
+        background-image: url(../img/page1/page1_00004.png);
+    }
+
+    11.4% {
+        background-image: url(../img/page1/page1_00005.png);
+    }
+
+    13.3% {
+        background-image: url(../img/page1/page1_00006.png);
+    }
+
+    15.2% {
+        background-image: url(../img/page1/page1_00007.png);
+    }
+
+    17.1% {
+        background-image: url(../img/page1/page1_00008.png);
+    }
+
+    19.06% {
+        background-image: url(../img/page1/page1_00009.png);
+    }
+
+    20.9% {
+        background-image: url(../img/page1/page1_00010.png);
+    }
+
+    22.8% {
+        background-image: url(../img/page1/page1_00011.png);
+    }
+
+    24.7% {
+        background-image: url(../img/page1/page1_00012.png);
+    }
+
+    26.6% {
+        background-image: url(../img/page1/page1_00013.png);
+    }
+
+    28.5% {
+        background-image: url(../img/page1/page1_00014.png);
+    }
+
+    30.4% {
+        background-image: url(../img/page1/page1_00015.png);
+    }
+
+    32.3% {
+        background-image: url(../img/page1/page1_00016.png);
+    }
+
+    34.2% {
+        background-image: url(../img/page1/page1_00017.png);
+    }
+
+    36.1% {
+        background-image: url(../img/page1/page1_00018.png);
+    }
+
+    38.06% {
+        background-image: url(../img/page1/page1_00019.png);
+    }
+
+    39.9% {
+        background-image: url(../img/page1/page1_00020.png);
+    }
+
+    41.8% {
+        background-image: url(../img/page1/page1_00021.png);
+    }
+
+    43.7% {
+        background-image: url(../img/page1/page1_00022.png);
+    }
+
+    45.6% {
+        background-image: url(../img/page1/page1_00023.png);
+    }
+
+    47.5% {
+        background-image: url(../img/page1/page1_00024.png);
+    }
+
+    49.4% {
+        background-image: url(../img/page1/page1_00025.png);
+    }
+
+    51.3% {
+        background-image: url(../img/page1/page1_00026.png);
+    }
+
+    53.2% {
+        background-image: url(../img/page1/page1_00027.png);
+    }
+
+    55.1% {
+        background-image: url(../img/page1/page1_00028.png);
+    }
+
+    57.06% {
+        background-image: url(../img/page1/page1_00029.png);
+    }
+
+    58.9% {
+        background-image: url(../img/page1/page1_00030.png);
+    }
+
+    60.8% {
+        background-image: url(../img/page1/page1_00031.png);
+    }
+
+    62.7% {
+        background-image: url(../img/page1/page1_00032.png);
+    }
+
+    64.6% {
+        background-image: url(../img/page1/page1_00033.png);
+    }
+
+    66.5% {
+        background-image: url(../img/page1/page1_00034.png);
+    }
+
+    68.4% {
+        background-image: url(../img/page1/page1_00035.png);
+    }
+
+    70.3% {
+        background-image: url(../img/page1/page1_00036.png);
+    }
+
+    72.2% {
+        background-image: url(../img/page1/page1_00037.png);
+    }
+
+    74.1% {
+        background-image: url(../img/page1/page1_00038.png);
+    }
+
+    76.06% {
+        background-image: url(../img/page1/page1_00039.png);
+    }
+
+    77.9% {
+        background-image: url(../img/page1/page1_00040.png);
+    }
+
+    79.8% {
+        background-image: url(../img/page1/page1_00041.png);
+    }
+
+    81.7% {
+        background-image: url(../img/page1/page1_00042.png);
+    }
+
+    83.6% {
+        background-image: url(../img/page1/page1_00043.png);
+    }
+
+    85.5% {
+        background-image: url(../img/page1/page1_00044.png);
+    }
+
+    87.4% {
+        background-image: url(../img/page1/page1_00045.png);
+    }
+
+    89.3% {
+        background-image: url(../img/page1/page1_00046.png);
+    }
+
+    92% {
+        background-image: url(../img/page1/page1_00047.png);
+    }
+
+    95.5% {
+        background-image: url(../img/page1/page1_00048.png);
+    }
+
+    97.1% {
+        background-image: url(../img/page1/page1_00049.png);
+    }
+
+    100% {
+        background-image: url(../img/page1/page1_00050.png);
+    }
+}
+
+@-webkit-keyframes animation {
+    1.9% {
+        background-image: url(../img/page1/page1_00000.png);
+    }
+
+    3.8% {
+        background-image: url(../img/page1/page1_00001.png);
+    }
+
+    5.7% {
+        background-image: url(../img/page1/page1_00002.png);
+    }
+
+    7.6% {
+        background-image: url(../img/page1/page1_00003.png);
+    }
+
+    9.5% {
+        background-image: url(../img/page1/page1_00004.png);
+    }
+
+    11.4% {
+        background-image: url(../img/page1/page1_00005.png);
+    }
+
+    13.3% {
+        background-image: url(../img/page1/page1_00006.png);
+    }
+
+    15.2% {
+        background-image: url(../img/page1/page1_00007.png);
+    }
+
+    17.1% {
+        background-image: url(../img/page1/page1_00008.png);
+    }
+
+    19.06% {
+        background-image: url(../img/page1/page1_00009.png);
+    }
+
+    20.9% {
+        background-image: url(../img/page1/page1_00010.png);
+    }
+
+    22.8% {
+        background-image: url(../img/page1/page1_00011.png);
+    }
+
+    24.7% {
+        background-image: url(../img/page1/page1_00012.png);
+    }
+
+    26.6% {
+        background-image: url(../img/page1/page1_00013.png);
+    }
+
+    28.5% {
+        background-image: url(../img/page1/page1_00014.png);
+    }
+
+    30.4% {
+        background-image: url(../img/page1/page1_00015.png);
+    }
+
+    32.3% {
+        background-image: url(../img/page1/page1_00016.png);
+    }
+
+    34.2% {
+        background-image: url(../img/page1/page1_00017.png);
+    }
+
+    36.1% {
+        background-image: url(../img/page1/page1_00018.png);
+    }
+
+    38.06% {
+        background-image: url(../img/page1/page1_00019.png);
+    }
+
+    39.9% {
+        background-image: url(../img/page1/page1_00020.png);
+    }
+
+    41.8% {
+        background-image: url(../img/page1/page1_00021.png);
+    }
+
+    43.7% {
+        background-image: url(../img/page1/page1_00022.png);
+    }
+
+    45.6% {
+        background-image: url(../img/page1/page1_00023.png);
+    }
+
+    47.5% {
+        background-image: url(../img/page1/page1_00024.png);
+    }
+
+    49.4% {
+        background-image: url(../img/page1/page1_00025.png);
+    }
+
+    51.3% {
+        background-image: url(../img/page1/page1_00026.png);
+    }
+
+    53.2% {
+        background-image: url(../img/page1/page1_00027.png);
+    }
+
+    55.1% {
+        background-image: url(../img/page1/page1_00028.png);
+    }
+
+    57.06% {
+        background-image: url(../img/page1/page1_00029.png);
+    }
+
+    58.9% {
+        background-image: url(../img/page1/page1_00030.png);
+    }
+
+    60.8% {
+        background-image: url(../img/page1/page1_00031.png);
+    }
+
+    62.7% {
+        background-image: url(../img/page1/page1_00032.png);
+    }
+
+    64.6% {
+        background-image: url(../img/page1/page1_00033.png);
+    }
+
+    66.5% {
+        background-image: url(../img/page1/page1_00034.png);
+    }
+
+    68.4% {
+        background-image: url(../img/page1/page1_00035.png);
+    }
+
+    70.3% {
+        background-image: url(../img/page1/page1_00036.png);
+    }
+
+    72.2% {
+        background-image: url(../img/page1/page1_00037.png);
+    }
+
+    74.1% {
+        background-image: url(../img/page1/page1_00038.png);
+    }
+
+    76.06% {
+        background-image: url(../img/page1/page1_00039.png);
+    }
+
+    77.9% {
+        background-image: url(../img/page1/page1_00040.png);
+    }
+
+    79.8% {
+        background-image: url(../img/page1/page1_00041.png);
+    }
+
+    81.7% {
+        background-image: url(../img/page1/page1_00042.png);
+    }
+
+    83.6% {
+        background-image: url(../img/page1/page1_00043.png);
+    }
+
+    85.5% {
+        background-image: url(../img/page1/page1_00044.png);
+    }
+
+    87.4% {
+        background-image: url(../img/page1/page1_00045.png);
+    }
+
+    89.3% {
+        background-image: url(../img/page1/page1_00046.png);
+    }
+
+    92% {
+        background-image: url(../img/page1/page1_00047.png);
+    }
+
+    95.5% {
+        background-image: url(../img/page1/page1_00048.png);
+    }
+
+    97.1% {
+        background-image: url(../img/page1/page1_00049.png);
+    }
+
+    100% {
+        background-image: url(../img/page1/page1_00050.png);
+    }
+}
+
+@keyframes animation {
+    1.9% {
+        background-image: url(../img/page1/page1_00000.png);
+    }
+
+    3.8% {
+        background-image: url(../img/page1/page1_00001.png);
+    }
+
+    5.7% {
+        background-image: url(../img/page1/page1_00002.png);
+    }
+
+    7.6% {
+        background-image: url(../img/page1/page1_00003.png);
+    }
+
+    9.5% {
+        background-image: url(../img/page1/page1_00004.png);
+    }
+
+    11.4% {
+        background-image: url(../img/page1/page1_00005.png);
+    }
+
+    13.3% {
+        background-image: url(../img/page1/page1_00006.png);
+    }
+
+    15.2% {
+        background-image: url(../img/page1/page1_00007.png);
+    }
+
+    17.1% {
+        background-image: url(../img/page1/page1_00008.png);
+    }
+
+    19.06% {
+        background-image: url(../img/page1/page1_00009.png);
+    }
+
+    20.9% {
+        background-image: url(../img/page1/page1_00010.png);
+    }
+
+    22.8% {
+        background-image: url(../img/page1/page1_00011.png);
+    }
+
+    24.7% {
+        background-image: url(../img/page1/page1_00012.png);
+    }
+
+    26.6% {
+        background-image: url(../img/page1/page1_00013.png);
+    }
+
+    28.5% {
+        background-image: url(../img/page1/page1_00014.png);
+    }
+
+    30.4% {
+        background-image: url(../img/page1/page1_00015.png);
+    }
+
+    32.3% {
+        background-image: url(../img/page1/page1_00016.png);
+    }
+
+    34.2% {
+        background-image: url(../img/page1/page1_00017.png);
+    }
+
+    36.1% {
+        background-image: url(../img/page1/page1_00018.png);
+    }
+
+    38.06% {
+        background-image: url(../img/page1/page1_00019.png);
+    }
+
+    39.9% {
+        background-image: url(../img/page1/page1_00020.png);
+    }
+
+    41.8% {
+        background-image: url(../img/page1/page1_00021.png);
+    }
+
+    43.7% {
+        background-image: url(../img/page1/page1_00022.png);
+    }
+
+    45.6% {
+        background-image: url(../img/page1/page1_00023.png);
+    }
+
+    47.5% {
+        background-image: url(../img/page1/page1_00024.png);
+    }
+
+    49.4% {
+        background-image: url(../img/page1/page1_00025.png);
+    }
+
+    51.3% {
+        background-image: url(../img/page1/page1_00026.png);
+    }
+
+    53.2% {
+        background-image: url(../img/page1/page1_00027.png);
+    }
+
+    55.1% {
+        background-image: url(../img/page1/page1_00028.png);
+    }
+
+    57.06% {
+        background-image: url(../img/page1/page1_00029.png);
+    }
+
+    58.9% {
+        background-image: url(../img/page1/page1_00030.png);
+    }
+
+    60.8% {
+        background-image: url(../img/page1/page1_00031.png);
+    }
+
+    62.7% {
+        background-image: url(../img/page1/page1_00032.png);
+    }
+
+    64.6% {
+        background-image: url(../img/page1/page1_00033.png);
+    }
+
+    66.5% {
+        background-image: url(../img/page1/page1_00034.png);
+    }
+
+    68.4% {
+        background-image: url(../img/page1/page1_00035.png);
+    }
+
+    70.3% {
+        background-image: url(../img/page1/page1_00036.png);
+    }
+
+    72.2% {
+        background-image: url(../img/page1/page1_00037.png);
+    }
+
+    74.1% {
+        background-image: url(../img/page1/page1_00038.png);
+    }
+
+    76.06% {
+        background-image: url(../img/page1/page1_00039.png);
+    }
+
+    77.9% {
+        background-image: url(../img/page1/page1_00040.png);
+    }
+
+    79.8% {
+        background-image: url(../img/page1/page1_00041.png);
+    }
+
+    81.7% {
+        background-image: url(../img/page1/page1_00042.png);
+    }
+
+    83.6% {
+        background-image: url(../img/page1/page1_00043.png);
+    }
+
+    85.5% {
+        background-image: url(../img/page1/page1_00044.png);
+    }
+
+    87.4% {
+        background-image: url(../img/page1/page1_00045.png);
+    }
+
+    89.3% {
+        background-image: url(../img/page1/page1_00046.png);
+    }
+
+    92% {
+        background-image: url(../img/page1/page1_00047.png);
+    }
+
+    95.5% {
+        background-image: url(../img/page1/page1_00048.png);
+    }
+
+    97.1% {
+        background-image: url(../img/page1/page1_00049.png);
+    }
+
+    100% {
+        background-image: url(../img/page1/page1_00050.png);
+    }
+}
+
+
+/*animation2*/
+
+@-moz-keyframes animation2 {
+    2.08% {
+        background-image: url(../img/page2/page2_00000.png);
+    }
+
+    4.1% {
+        background-image: url(../img/page2/page2_00001.png);
+    }
+
+    6.2% {
+        background-image: url(../img/page2/page2_00002.png);
+    }
+
+    8.3% {
+        background-image: url(../img/page2/page2_00003.png);
+    }
+
+    10.3% {
+        background-image: url(../img/page2/page2_00004.png);
+    }
+
+    12.4% {
+        background-image: url(../img/page2/page2_00005.png);
+    }
+
+    14.5% {
+        background-image: url(../img/page2/page2_00006.png);
+    }
+
+    16.6% {
+        background-image: url(../img/page2/page2_00007.png);
+    }
+
+    18.7% {
+        background-image: url(../img/page2/page2_00008.png);
+    }
+
+    20.8% {
+        background-image: url(../img/page2/page2_00009.png);
+    }
+
+    22.8% {
+        background-image: url(../img/page2/page2_00010.png);
+    }
+
+    24.9% {
+        background-image: url(../img/page2/page2_00011.png);
+    }
+
+    27.9% {
+        background-image: url(../img/page2/page2_00012.png);
+    }
+
+    29.1% {
+        background-image: url(../img/page2/page2_00013.png);
+    }
+
+    31.2% {
+        background-image: url(../img/page2/page2_00014.png);
+    }
+
+    33.2% {
+        background-image: url(../img/page2/page2_00015.png);
+    }
+
+    35.2% {
+        background-image: url(../img/page2/page2_00016.png);
+    }
+
+    37.3% {
+        background-image: url(../img/page2/page2_00017.png);
+    }
+
+    39.4% {
+        background-image: url(../img/page2/page2_00018.png);
+    }
+
+    38.06% {
+        background-image: url(../img/page2/page2_00019.png);
+    }
+
+    39.4% {
+        background-image: url(../img/page2/page2_00020.png);
+    }
+
+    41.5% {
+        background-image: url(../img/page2/page2_00021.png);
+    }
+
+    43.5% {
+        background-image: url(../img/page2/page2_00022.png);
+    }
+
+    45.6% {
+        background-image: url(../img/page2/page2_00023.png);
+    }
+
+    47.7% {
+        background-image: url(../img/page2/page2_00024.png);
+    }
+
+    49.8% {
+        background-image: url(../img/page2/page2_00025.png);
+    }
+
+    51.9% {
+        background-image: url(../img/page2/page2_00026.png);
+    }
+
+    53.9% {
+        background-image: url(../img/page2/page2_00027.png);
+    }
+
+    56.06% {
+        background-image: url(../img/page2/page2_00028.png);
+    }
+
+    58.1% {
+        background-image: url(../img/page2/page2_00029.png);
+    }
+
+    60.1% {
+        background-image: url(../img/page2/page2_00030.png);
+    }
+
+    62.26% {
+        background-image: url(../img/page2/page2_00031.png);
+    }
+
+    64.3% {
+        background-image: url(../img/page2/page2_00032.png);
+    }
+
+    66.4% {
+        background-image: url(../img/page2/page2_00033.png);
+    }
+
+    68.5% {
+        background-image: url(../img/page2/page2_00034.png);
+    }
+
+    70.5% {
+        background-image: url(../img/page2/page2_00035.png);
+    }
+
+    72.6% {
+        background-image: url(../img/page2/page2_00036.png);
+    }
+
+    74.7% {
+        background-image: url(../img/page2/page2_00037.png);
+    }
+
+    76.8% {
+        background-image: url(../img/page2/page2_00038.png);
+    }
+
+    78.9% {
+        background-image: url(../img/page2/page2_00039.png);
+    }
+
+    80.9% {
+        background-image: url(../img/page2/page2_00040.png);
+    }
+
+    83.06% {
+        background-image: url(../img/page2/page2_00041.png);
+    }
+
+    86% {
+        background-image: url(../img/page2/page2_00042.png);
+    }
+
+    89% {
+        background-image: url(../img/page2/page2_00043.png);
+    }
+
+    92% {
+        background-image: url(../img/page2/page2_00044.png);
+    }
+
+    96% {
+        background-image: url(../img/page2/page2_00045.png);
+    }
+
+    98% {
+        background-image: url(../img/page2/page2_00046.png);
+    }
+
+    100% {
+        background-image: url(../img/page2/page2_00047.png);
+    }
+}
+
+@-webkit-keyframes animation2 {
+    2.08% {
+        background-image: url(../img/page2/page2_00000.png);
+    }
+
+    4.1% {
+        background-image: url(../img/page2/page2_00001.png);
+    }
+
+    6.2% {
+        background-image: url(../img/page2/page2_00002.png);
+    }
+
+    8.3% {
+        background-image: url(../img/page2/page2_00003.png);
+    }
+
+    10.3% {
+        background-image: url(../img/page2/page2_00004.png);
+    }
+
+    12.4% {
+        background-image: url(../img/page2/page2_00005.png);
+    }
+
+    14.5% {
+        background-image: url(../img/page2/page2_00006.png);
+    }
+
+    16.6% {
+        background-image: url(../img/page2/page2_00007.png);
+    }
+
+    18.7% {
+        background-image: url(../img/page2/page2_00008.png);
+    }
+
+    20.8% {
+        background-image: url(../img/page2/page2_00009.png);
+    }
+
+    22.8% {
+        background-image: url(../img/page2/page2_00010.png);
+    }
+
+    24.9% {
+        background-image: url(../img/page2/page2_00011.png);
+    }
+
+    27.9% {
+        background-image: url(../img/page2/page2_00012.png);
+    }
+
+    29.1% {
+        background-image: url(../img/page2/page2_00013.png);
+    }
+
+    31.2% {
+        background-image: url(../img/page2/page2_00014.png);
+    }
+
+    33.2% {
+        background-image: url(../img/page2/page2_00015.png);
+    }
+
+    35.2% {
+        background-image: url(../img/page2/page2_00016.png);
+    }
+
+    37.3% {
+        background-image: url(../img/page2/page2_00017.png);
+    }
+
+    39.4% {
+        background-image: url(../img/page2/page2_00018.png);
+    }
+
+    38.06% {
+        background-image: url(../img/page2/page2_00019.png);
+    }
+
+    39.4% {
+        background-image: url(../img/page2/page2_00020.png);
+    }
+
+    41.5% {
+        background-image: url(../img/page2/page2_00021.png);
+    }
+
+    43.5% {
+        background-image: url(../img/page2/page2_00022.png);
+    }
+
+    45.6% {
+        background-image: url(../img/page2/page2_00023.png);
+    }
+
+    47.7% {
+        background-image: url(../img/page2/page2_00024.png);
+    }
+
+    49.8% {
+        background-image: url(../img/page2/page2_00025.png);
+    }
+
+    51.9% {
+        background-image: url(../img/page2/page2_00026.png);
+    }
+
+    53.9% {
+        background-image: url(../img/page2/page2_00027.png);
+    }
+
+    56.06% {
+        background-image: url(../img/page2/page2_00028.png);
+    }
+
+    58.1% {
+        background-image: url(../img/page2/page2_00029.png);
+    }
+
+    60.1% {
+        background-image: url(../img/page2/page2_00030.png);
+    }
+
+    62.26% {
+        background-image: url(../img/page2/page2_00031.png);
+    }
+
+    64.3% {
+        background-image: url(../img/page2/page2_00032.png);
+    }
+
+    66.4% {
+        background-image: url(../img/page2/page2_00033.png);
+    }
+
+    68.5% {
+        background-image: url(../img/page2/page2_00034.png);
+    }
+
+    70.5% {
+        background-image: url(../img/page2/page2_00035.png);
+    }
+
+    72.6% {
+        background-image: url(../img/page2/page2_00036.png);
+    }
+
+    74.7% {
+        background-image: url(../img/page2/page2_00037.png);
+    }
+
+    76.8% {
+        background-image: url(../img/page2/page2_00038.png);
+    }
+
+    78.9% {
+        background-image: url(../img/page2/page2_00039.png);
+    }
+
+    80.9% {
+        background-image: url(../img/page2/page2_00040.png);
+    }
+
+    83.06% {
+        background-image: url(../img/page2/page2_00041.png);
+    }
+
+    86% {
+        background-image: url(../img/page2/page2_00042.png);
+    }
+
+    89% {
+        background-image: url(../img/page2/page2_00043.png);
+    }
+
+    92% {
+        background-image: url(../img/page2/page2_00044.png);
+    }
+
+    96% {
+        background-image: url(../img/page2/page2_00045.png);
+    }
+
+    98% {
+        background-image: url(../img/page2/page2_00046.png);
+    }
+
+    100% {
+        background-image: url(../img/page2/page2_00047.png);
+    }
+}
+
+
+@keyframes animation2 {
+    2.08% {
+        background-image: url(../img/page2/page2_00000.png);
+    }
+
+    4.1% {
+        background-image: url(../img/page2/page2_00001.png);
+    }
+
+    6.2% {
+        background-image: url(../img/page2/page2_00002.png);
+    }
+
+    8.3% {
+        background-image: url(../img/page2/page2_00003.png);
+    }
+
+    10.3% {
+        background-image: url(../img/page2/page2_00004.png);
+    }
+
+    12.4% {
+        background-image: url(../img/page2/page2_00005.png);
+    }
+
+    14.5% {
+        background-image: url(../img/page2/page2_00006.png);
+    }
+
+    16.6% {
+        background-image: url(../img/page2/page2_00007.png);
+    }
+
+    18.7% {
+        background-image: url(../img/page2/page2_00008.png);
+    }
+
+    20.8% {
+        background-image: url(../img/page2/page2_00009.png);
+    }
+
+    22.8% {
+        background-image: url(../img/page2/page2_00010.png);
+    }
+
+    24.9% {
+        background-image: url(../img/page2/page2_00011.png);
+    }
+
+    27.9% {
+        background-image: url(../img/page2/page2_00012.png);
+    }
+
+    29.1% {
+        background-image: url(../img/page2/page2_00013.png);
+    }
+
+    31.2% {
+        background-image: url(../img/page2/page2_00014.png);
+    }
+
+    33.2% {
+        background-image: url(../img/page2/page2_00015.png);
+    }
+
+    35.2% {
+        background-image: url(../img/page2/page2_00016.png);
+    }
+
+    37.3% {
+        background-image: url(../img/page2/page2_00017.png);
+    }
+
+    39.4% {
+        background-image: url(../img/page2/page2_00018.png);
+    }
+
+    38.06% {
+        background-image: url(../img/page2/page2_00019.png);
+    }
+
+    39.4% {
+        background-image: url(../img/page2/page2_00020.png);
+    }
+
+    41.5% {
+        background-image: url(../img/page2/page2_00021.png);
+    }
+
+    43.5% {
+        background-image: url(../img/page2/page2_00022.png);
+    }
+
+    45.6% {
+        background-image: url(../img/page2/page2_00023.png);
+    }
+
+    47.7% {
+        background-image: url(../img/page2/page2_00024.png);
+    }
+
+    49.8% {
+        background-image: url(../img/page2/page2_00025.png);
+    }
+
+    51.9% {
+        background-image: url(../img/page2/page2_00026.png);
+    }
+
+    53.9% {
+        background-image: url(../img/page2/page2_00027.png);
+    }
+
+    56.06% {
+        background-image: url(../img/page2/page2_00028.png);
+    }
+
+    58.1% {
+        background-image: url(../img/page2/page2_00029.png);
+    }
+
+    60.1% {
+        background-image: url(../img/page2/page2_00030.png);
+    }
+
+    62.26% {
+        background-image: url(../img/page2/page2_00031.png);
+    }
+
+    64.3% {
+        background-image: url(../img/page2/page2_00032.png);
+    }
+
+    66.4% {
+        background-image: url(../img/page2/page2_00033.png);
+    }
+
+    68.5% {
+        background-image: url(../img/page2/page2_00034.png);
+    }
+
+    70.5% {
+        background-image: url(../img/page2/page2_00035.png);
+    }
+
+    72.6% {
+        background-image: url(../img/page2/page2_00036.png);
+    }
+
+    74.7% {
+        background-image: url(../img/page2/page2_00037.png);
+    }
+
+    76.8% {
+        background-image: url(../img/page2/page2_00038.png);
+    }
+
+    78.9% {
+        background-image: url(../img/page2/page2_00039.png);
+    }
+
+    80.9% {
+        background-image: url(../img/page2/page2_00040.png);
+    }
+
+    83.06% {
+        background-image: url(../img/page2/page2_00041.png);
+    }
+
+    86% {
+        background-image: url(../img/page2/page2_00042.png);
+    }
+
+    89% {
+        background-image: url(../img/page2/page2_00043.png);
+    }
+
+    92% {
+        background-image: url(../img/page2/page2_00044.png);
+    }
+
+    96% {
+        background-image: url(../img/page2/page2_00045.png);
+    }
+
+    98% {
+        background-image: url(../img/page2/page2_00046.png);
+    }
+
+    100% {
+        background-image: url(../img/page2/page2_00047.png);
+    }
+}
+
+
+
+/***rain***/
+@keyframes rain {
+    0% {
+        background-image: url(../img/page2/page2_00047.png);
+    }
+
+    10% {
+        background-image: url(../img/page2/page2_00048.png);
+    }
+
+    20% {
+        background-image: url(../img/page2/page2_00049.png);
+    }
+
+    30% {
+        background-image: url(../img/page2/page2_00050.png);
+    }
+
+    40% {
+        background-image: url(../img/page2/page2_00051.png);
+    }
+
+    50% {
+        background-image: url(../img/page2/page2_00052.png);
+    }
+
+    60% {
+        background-image: url(../img/page2/page2_00053.png);
+    }
+
+    70% {
+        background-image: url(../img/page2/page2_00054.png);
+    }
+
+    80% {
+        background-image: url(../img/page2/page2_00055.png);
+    }
+
+    90% {
+        background-image: url(../img/page2/page2_00056.png);
+    }
+
+    100% {
+        background-image: url(../img/page2/page2_00057.png);
+    }
+}
+
+@-moz-keyframes rain {
+     0% {
+        background-image: url(../img/page2/page2_00047.png);
+    }
+
+    10% {
+        background-image: url(../img/page2/page2_00048.png);
+    }
+
+    20% {
+        background-image: url(../img/page2/page2_00049.png);
+    }
+
+    30% {
+        background-image: url(../img/page2/page2_00050.png);
+    }
+
+    40% {
+        background-image: url(../img/page2/page2_00051.png);
+    }
+
+    50% {
+        background-image: url(../img/page2/page2_00052.png);
+    }
+
+    60% {
+        background-image: url(../img/page2/page2_00053.png);
+    }
+
+    70% {
+        background-image: url(../img/page2/page2_00054.png);
+    }
+
+    80% {
+        background-image: url(../img/page2/page2_00055.png);
+    }
+
+    90% {
+        background-image: url(../img/page2/page2_00056.png);
+    }
+
+    100% {
+        background-image: url(../img/page2/page2_00057.png);
+    }
+}
+
+@-webkit-keyframes rain {
+    0% {
+        background-image: url(../img/page2/page2_00047.png);
+    }
+
+    10% {
+        background-image: url(../img/page2/page2_00048.png);
+    }
+
+    20% {
+        background-image: url(../img/page2/page2_00049.png);
+    }
+
+    30% {
+        background-image: url(../img/page2/page2_00050.png);
+    }
+
+    40% {
+        background-image: url(../img/page2/page2_00051.png);
+    }
+
+    50% {
+        background-image: url(../img/page2/page2_00052.png);
+    }
+
+    60% {
+        background-image: url(../img/page2/page2_00053.png);
+    }
+
+    70% {
+        background-image: url(../img/page2/page2_00054.png);
+    }
+
+    80% {
+        background-image: url(../img/page2/page2_00055.png);
+    }
+
+    90% {
+        background-image: url(../img/page2/page2_00056.png);
+    }
+
+    100% {
+        background-image: url(../img/page2/page2_00057.png);
+    }
+}
+
+/****end rain****/
+/*animation3*/
+
+@-moz-keyframes animation3 {
+    4.7% {
+        background-image: url(../img/page3/page3_00000.png);
+    }
+
+    9.5% {
+        background-image: url(../img/page3/page3_00001.png);
+    }
+
+    14.7% {
+        background-image: url(../img/page3/page3_00002.png);
+    }
+
+    18.9% {
+        background-image: url(../img/page3/page3_00003.png);
+    }
+
+    23.6% {
+        background-image: url(../img/page3/page3_00004.png);
+    }
+
+    28.3% {
+        background-image: url(../img/page3/page3_00005.png);
+    }
+
+    33.02% {
+        background-image: url(../img/page3/page3_00006.png);
+    }
+
+    37.7% {
+        background-image: url(../img/page3/page3_00007.png);
+    }
+
+    42.4% {
+        background-image: url(../img/page3/page3_00008.png);
+    }
+
+    47.1% {
+        background-image: url(../img/page3/page3_00009.png);
+    }
+
+    51.8% {
+        background-image: url(../img/page3/page3_00010.png);
+    }
+
+    56.5% {
+        background-image: url(../img/page3/page3_00011.png);
+    }
+
+    61.2% {
+        background-image: url(../img/page3/page3_00012.png);
+    }
+
+    65.9% {
+        background-image: url(../img/page3/page3_00013.png);
+    }
+
+    70.6% {
+        background-image: url(../img/page3/page3_00014.png);
+    }
+
+    75.3% {
+        background-image: url(../img/page3/page3_00015.png);
+    }
+
+    80.02% {
+        background-image: url(../img/page3/page3_00016.png);
+    }
+
+    84.7% {
+        background-image: url(../img/page3/page3_00017.png);
+    }
+
+    89.4% {
+        background-image: url(../img/page3/page3_00018.png);
+    }
+
+    95% {
+        background-image: url(../img/page3/page3_00019.png);
+    }
+
+    100% {
+        background-image: url(../img/page3/page3_00020.png);
+    }
+}
+
+@-webkit-keyframes animation3 {
+    4.7% {
+        background-image: url(../img/page3/page3_00000.png);
+    }
+
+    9.5% {
+        background-image: url(../img/page3/page3_00001.png);
+    }
+
+    14.7% {
+        background-image: url(../img/page3/page3_00002.png);
+    }
+
+    18.9% {
+        background-image: url(../img/page3/page3_00003.png);
+    }
+
+    23.6% {
+        background-image: url(../img/page3/page3_00004.png);
+    }
+
+    28.3% {
+        background-image: url(../img/page3/page3_00005.png);
+    }
+
+    33.02% {
+        background-image: url(../img/page3/page3_00006.png);
+    }
+
+    37.7% {
+        background-image: url(../img/page3/page3_00007.png);
+    }
+
+    42.4% {
+        background-image: url(../img/page3/page3_00008.png);
+    }
+
+    47.1% {
+        background-image: url(../img/page3/page3_00009.png);
+    }
+
+    51.8% {
+        background-image: url(../img/page3/page3_00010.png);
+    }
+
+    56.5% {
+        background-image: url(../img/page3/page3_00011.png);
+    }
+
+    61.2% {
+        background-image: url(../img/page3/page3_00012.png);
+    }
+
+    65.9% {
+        background-image: url(../img/page3/page3_00013.png);
+    }
+
+    70.6% {
+        background-image: url(../img/page3/page3_00014.png);
+    }
+
+    75.3% {
+        background-image: url(../img/page3/page3_00015.png);
+    }
+
+    80.02% {
+        background-image: url(../img/page3/page3_00016.png);
+    }
+
+    84.7% {
+        background-image: url(../img/page3/page3_00017.png);
+    }
+
+    89.4% {
+        background-image: url(../img/page3/page3_00018.png);
+    }
+
+    95% {
+        background-image: url(../img/page3/page3_00019.png);
+    }
+
+    100% {
+        background-image: url(../img/page3/page3_00020.png);
+    }
+}
+
+@keyframes animation3 {
+    4.7% {
+        background-image: url(../img/page3/page3_00000.png);
+    }
+
+    9.5% {
+        background-image: url(../img/page3/page3_00001.png);
+    }
+
+    14.7% {
+        background-image: url(../img/page3/page3_00002.png);
+    }
+
+    18.9% {
+        background-image: url(../img/page3/page3_00003.png);
+    }
+
+    23.6% {
+        background-image: url(../img/page3/page3_00004.png);
+    }
+
+    28.3% {
+        background-image: url(../img/page3/page3_00005.png);
+    }
+
+    33.02% {
+        background-image: url(../img/page3/page3_00006.png);
+    }
+
+    37.7% {
+        background-image: url(../img/page3/page3_00007.png);
+    }
+
+    42.4% {
+        background-image: url(../img/page3/page3_00008.png);
+    }
+
+    47.1% {
+        background-image: url(../img/page3/page3_00009.png);
+    }
+
+    51.8% {
+        background-image: url(../img/page3/page3_00010.png);
+    }
+
+    56.5% {
+        background-image: url(../img/page3/page3_00011.png);
+    }
+
+    61.2% {
+        background-image: url(../img/page3/page3_00012.png);
+    }
+
+    65.9% {
+        background-image: url(../img/page3/page3_00013.png);
+    }
+
+    70.6% {
+        background-image: url(../img/page3/page3_00014.png);
+    }
+
+    75.3% {
+        background-image: url(../img/page3/page3_00015.png);
+    }
+
+    80.02% {
+        background-image: url(../img/page3/page3_00016.png);
+    }
+
+    84.7% {
+        background-image: url(../img/page3/page3_00017.png);
+    }
+
+    89.4% {
+        background-image: url(../img/page3/page3_00018.png);
+    }
+
+    95% {
+        background-image: url(../img/page3/page3_00019.png);
+    }
+
+    100% {
+        background-image: url(../img/page3/page3_00020.png);
+    }
+}

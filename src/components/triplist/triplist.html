@@ -1,0 +1,370 @@
+<!--<link rel="stylesheet" href="../../../../../Desktop/MonkeyProjects/lamtayel-ariza-master 13.50.59/www/css/style.css">-->
+<div id="trip-list">
+    <span ng-click="openHeaderMenu()" class="iconfont icon-more_vert left_side vertical_dots general-menu"></span>
+    <div class="header-menu" ng-class="{'open':showHeaderMenu == true}">
+        <ul>
+            <li ng-click="addActivities()">הוספת פעילות</li>
+            <li ng-click="unPackageAllCategories()">סמן הכל כלא נארז</li>
+            <li ng-click="hideAllCategoriesItems()">הסתרת הפריטים שסימנתי</li>
+            <li ng-click="checkIfResetAllCategoriesLists()">שחזור הרשימה לברירת המחדל</li>
+            <li ng-click="goToFirstLevel()">הוספת פריטים נוספים</li>
+            <li ng-click="openTutorial()">הצג הסבר</li>
+            <li class="orange-text" ng-class="{'noPadding':!showReturn}" ng-click="openLink(placeListData.placeurl)">
+                מידע על היעד מאתר "למטייל"
+            </li>
+            <li ng-show="showReturn" ng-click="returnAllItemsCategories()">הצג פריטים שהסתרתי</li>
+        </ul>
+    </div>
+    <div class="wrap-page-list">
+        <!--<div style="width: 20px; height: 50px; background-color: red" ng-click="openReminderPopup()"></div>-->
+		<!--ng-show="!showItemPage"-->
+        <div class="trip_list">
+            <div class="trip_item" style="background-image:url({{placeListData.img}})">
+                <div class="trip_details">
+                    <div class="place">{{placeListData.name}}</div>
+                    <div class="who-text">{{placeListData.who}}</div>
+                    <div class="">{{placeListData.startDate}} - {{placeListData.endDate}}</div>
+                    <div class="prog_bar">
+                        <span class="iconfont icon-check_box" id="img_prog"></span>
+                        <div id="myProgress">
+                            <div id="myBar" ng-style="{'width': completePercents + '%' }">
+                                <div ng-if="completePercents >= 25">{{ Math.round(completePercents)}}%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info_btn">
+                    <span ng-click="openInfoPopup(); $event.stopPropagation();" class="iconfont icon-info"></span>
+                </div>
+                <div class="info-popup" ng-class="{'open':openPopup}">
+                    <div class="right_side info-popup-header">
+                        <span class="right_side info-header-text">{{placeListData.name}} באתר "למטייל"</span>
+                        <span ng-click="closeInfoPopup()" class="left_side iconfont icon-close"></span>
+                    </div>
+                    <div class="right_side info-popup-main">
+                        <div class="right_side travel-info" ng-click="openTravelInfo()">
+                            <div class="info-popup-main-icon"><span class="iconfont icon-info"></span></div>
+                            <div class="info-popup-main-text"><span>מידע למטיילים</span></div>
+                        </div>
+                        <div class="left_side update-rgister" ng-click="getNotice()">
+                            <div class="info-popup-main-icon"><span class="iconfont icon-notifications"></span></div>
+                            <div class="info-popup-main-text"><span>הרשמה לעדכונים</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!--<div ng-joy-ride="startJoyRide" id="startJoyRide" ng-if="!noJoy" config="joyrideConfig" on-finish="onFinish()"-->
+		<!--on-skip="onFinish()"></div>-->
+        <div class="loaderPlane cCeHo cMaTo20 cImCoRe" ng-show="showLoader"></div>
+        <div ng-show="showList" class="activity"
+			 ng-if="activity.items && activity.items.length > 0 && activity.deleted == false || activity.isCustomCat == true"
+			 ng-repeat="activity in placeListData.list | limitTo: limitLength : repeatFrom"
+			 ng-init="checkBuildDomStatus($last)">
+            <div class="activities-title">
+                <span class="iconfont icon-cat icon-cat-{{activity.id}}"></span>
+                <div class="activities-title-wrap">
+                    <span class="activities-title-text">{{activity.name}}</span>
+                    <span style="margin-right: 5px" class="activities-title-text count">
+							{{(activity.items|filter:{checked : true, deleted: false,recomanded : false }).length + '/' + (activity.items|filter:{deleted : false, recomanded : false}).length}}
+                    </span>
+                </div>
+                <div class="left_side vertical_dots"><span ng-click="openCatMenu(activity.name,$index)"
+														   class="iconfont icon-more_vert"></span></div>
+				<!--<div class="overlay" ng-show="showMask" ng-click="hideMask()"></div>-->
+                <div class="activity-menu" ng-class="{'open':openMenuIndex == $index}" id="activity-menu-{{$index}}">
+                    <ul>
+                        <li ng-click="hideMask();packageAll(activity,$index)">סמן הכל כנארז</li>
+                        <li ng-click="hideMask();unPackageAll(activity,$index)">סמן הכל כלא נארז</li>
+						<!--<li ng-click="hideMask();restoreItems(activity,$index)">שחזר פריטים שמחקתי</li>-->
+                        <li ng-click="hideMask();shareAct(activity)">שיתוף קטגוריה</li>
+                        <li ng-click="hideMask();removeCategory(activity,$index)">מחיקת קטגוריה</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="activity-list">
+                <ul id="{{'activity-title'+$index}}" class="tripListAct items-activity" ng-model="activity.items">
+                    <!--ui-sortable="sortableList"-->
+                    <li id="item-{{item.id}}" class="animate-repeat" scroll-item
+						ng-repeat="item in activity.items | orderBy:'date' track by item.id | filter:item.checked != true   "
+						ng-if="!((item.checked == true && checkedListSetting == 'endOfList') || item.deleted == true || item.hidden == true  || item.recomanded == true)"
+						item-swipe="" ng-mousedown="putter(item.name)" on-remove="removeItem(activity,$index, item)"
+						ng-click="markAsPackage(activity,item,$index);$event.stopPropagation()">
+                        <!---->
+						<!--on-long-press="startDrag($event, item.id)"  on-touch-end="stopDrag(item.id)"-->
+                        <span class="iconfont icon-info" role="button" tabindex="0"
+							  ng-click="addNotes(item);$event.stopPropagation()"></span>
+                        <div class="link" ng-class="{'withComment':item.comment != ''}">
+                            <!--<span class="iconfont icon-more_vert myHandle"></span>-->
+                            <span ng-click="markAsPackage(activity,item,$index);$event.stopPropagation()"
+								  class="item-hover-checked iconfont cCenVer"
+								  ng-class="{'icon-check_box_outline_blank':item.checked == false,'icon-check_box':item.checked == true,'checked':item.checked && checkedListSetting != 'endOfList'}"></span>
+                            <span class="cVerMid"
+								  ng-class="{'checked':item.checked && checkedListSetting != 'endOfList'}"
+								  style="padding-left: 23px;">
+                                <span class="itemName cVerMid cRel" style="">
+                                        {{item.name}}
+                                </span>
+              <span class="item-amount cRel cVerMid" ng-if="item.amount > 1" style="padding-right:6px; min-width:43px;">
+                                    <div style="float:right">x</div>
+                                    <div style="float:right">{{item.amount}}</div>
+                                </span>
+              </span>
+                            <span class="alarm_notice notification iconfont icon-access_alarm"
+								  ng-if="item.notification == true"></span>
+                        </div>
+                        <div class="item-notes cMaBo10" ng-if="item.comment != ''">
+                            <div class="notes_text"><span class="right_side iconfont icon-edit"></span>{{item.comment}}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div id="{{'recom'+$index}}" class="recommended-items">
+                    <!--ng-show="(activity.items|filter:{recomanded : true}).length > 0"-->
+                    <div ng-click="openRecommended(activity,$index)" class="recommended-title"
+						 ng-class="{'noBorder':checkedListSetting != 'endOfList','added':activity.added}"
+						 id="{{'recommended-close-' + $index}}" ng-init="activity.added =false">
+                        <!--<span class="iconfont icon-playlist_add"></span>-->
+                        <img class="list_icons"
+							 src="{{item.recomanded == false? 'img/added_to_list.svg':'img/add_to_list.svg'}}"
+							 alt="">
+                        <span class="item-type veTop" style="font-size:1rem;">הוספת פריטים</span>
+                        <span class="iconfont icon-arrow-top-bottom left_side icon-keyboard_arrow_right"></span>
+						<!--ng-if="recommendedIsOpen[$index]==true"-->
+                    </div>
+                    <div ng-init="recommendedClose()" class="recommended-list" data-index="{{$index}}"
+						 id="recommended-{{$index}}">
+                        <ul class="items-activity add-yours-item">
+                            <li class="noBorder cDiTa">
+                                <span class="iconfont icon-add"></span>
+								<!--<img class="list_icons"-->
+								<!--src="{{item.recomanded == false? 'img/added_to_list.svg':'img/add_to_list.svg'}}"-->
+								<!--alt="">-->
+                                <span class="cVerMid item-rem" ng-click="enterNewItem(activity,$index)"
+									  id="enter-item-{{$index}}" style="font-size:1rem;">הוספת פריט משלך</span>
+                                <input id="add-item-{{$index}}" my-enter="addNewItem(activity,$index,'enter')"
+									   ng-blur="addNewItem(activity,$index)" class="add-item item-type" type="text"
+									   placeholder="">
+                            </li>
+                        </ul>
+                        <div ng-click="toggleRecommandedItem(activity,item,$index,$parent.$index)"
+							 class="recommended-item"
+							 ng-class="{'even':$even, 'was-added': item.recomanded == false,  'was-not-added': !(item.recomanded == false)}"
+							 ng-repeat="item in activity.items" style="position:relative;">
+                            <!--'last' : $last && (activity.items).length%2==1,-->
+                            <div style="position:relative; min-height:30px; display:table">
+                                <div class="recomanded-item-name">
+                                    <!--<span class="iconfont icon-add"></span>-->
+                                    <img class="list_icons"
+										 src="{{item.recomanded == false? 'img/added_to_list.svg':'img/add_to_list.svg'}}"
+										 alt="">
+                                    <span class="ee">{{item.name}}</span>
+                                </div>
+                            </div>
+                            <div class="item3d" ng-show="item.show3d == true" ng-init="item.show3d = false">
+                                <div class="recomanded-item-name">
+                                    <!--<span class="iconfont icon-add"></span>-->
+                                    <img class="list_icons"
+										 src="{{item.recomanded == false? 'img/added_to_list.svg':'img/add_to_list.svg'}}"
+										 alt="">
+                                    <span class="ee">{{item.name}}</span>
+                                </div>
+                            </div>
+                        </div>
+						<!--<div class="recommended-item last" ng-if="(activity.items|filter:{recomanded : true}).length%2==1">&nbsp;</div>-->
+                        <div class="recommended-close">
+                            <div class="close-table" ng-click="closeRecommended(activity,$index)">סגור</div>
+							<!--<div class="close-table next" ng-click="nextRecommended(activity,$index)">הבא</div>-->
+                        </div>
+                    </div>
+                </div>
+                <ul class="items-activity-checked" ng-if="checkedListSetting == 'endOfList'">
+                    <li ng-repeat="item in activity.items"
+						ng-if="item.deleted == false && item.checked == true  && item.hidden != true"
+						ng-click="markAsNotPackage(activity,item,$index)">
+                        <span class="iconfont icon-check_box"></span>
+                        <span class="item-checked item-type">{{item.name}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div ng-show="showDeleteItemCancelPoup" class="undo-div cancelDelete-popup" ng-style="undoStyle"
+				 role="button" tabindex="0">
+                <div class="right_side undo-name ng-binding">
+                    {{ editItem.name }} נמחק
+                </div>
+                <div class="left_side undo" ng-click="deleteItemCancel(); $event.stopPropagation();">
+                    <span class="iconfont icon-undo"></span>
+                    <span>בטל</span>
+                </div>
+            </div>
+        </div>
+        <div ng-show="showLoadMoreLoader" class="small-loader"></div>
+        <div class="activity add-cat">
+            <div class="activities-title">
+                <span class="iconfont icon-add"></span>
+                <span class="activities-title-text enter-category" ng-click="enterNewCategory()" id="enter-category">הוספת קטגוריה משלך</span>
+                <input id="add-category" ng-focus="addLine()" my-enter="addNewCategory()" ng-blur="addNewCategory()"
+					   class="add-category" type="text" placeholder="">
+            </div>
+			<!--<div class="activity-list" ng-if="addCategory == true">
+																					  <ul class="items-activity">
+																						  <li class="noBorder"><span class="iconfont icon-add"></span><span class="item-type enter-item">הוספת פריט משלך</span></li>
+																					  </ul>
+																				  </div>-->
+        </div>
+    </div>
+    <div id="itemPage" ng-show="showItemPage">
+        <div class="item-header">
+            <div class="table">
+                <div ng-click="backToList()">
+                    <span class="iconfont icon-arrow_back back"></span>
+                </div>
+                <div class="item-title">
+                    <span ng-click="enterItemName()" class="enter-item-name item-preferance item-title"
+						  id="enter-item-name">{{editItem.name}}</span>
+                    <input id="change-item-name" my-enter="changeItemName()" ng-blur="changeItemName()"
+						   class="change-item-name item-title" type="text" placeholder="">
+                </div>
+            </div>
+            <div ng-click="deleteItem()" class="trash"><span class="iconfont icon-delete"></span></div>
+        </div>
+        <div id="item">
+            <div class="item-number">
+                <span class="item-type item-type-text veTop" style="display: inline-block; line-height: 35px;">מספר פריטים</span>
+                <div class="item-number-input">
+                    <button class="item-btn minus caFr" ng-disabled="itemAmount <= '1'" ng-click="minusItem()">
+                        <span class="minus-btn iconfont icon-remove"></span>
+                    </button>
+                    <input id="item-amount" class="item-amount caFr" ng-class="{'disabled':iszero}" type="number"
+						   value="" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="2"
+						   min="1" max="99" ng-model="itemAmount" ng-change="changeTimeAmount()"
+						   ng-blur="blureTimeAmount()"/>
+                    <button class="item-btn plus caFr" ng-click="plusItem()">
+                        <span class="plus-btn iconfont icon-add"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="preferance notification">
+                <datepickerdirective></datepickerdirective>
+                <span class="iconfont icon-access_alarm"
+					  ng-class="{'darkOrange':editItem.notification == true }"></span>
+                <span class="item-preferance item-type" ng-show="editItem.notification == false">תזכורת</span>
+                <span class="item-preferance item-type darkOrange" ng-show="editItem.notification == true"><span>{{editItem.dateToNotification}}</span><span
+						ng-click="cancelReminder(editItem)" class="x"></span></span>
+                <input class="add-notification item-type" type="text" placeholder=""/>
+            </div>
+            <div class="preferance purchase" ng-if="editItem.link && editItem.link.length>0"
+				 ng-click="openLink(editItem.link)">
+                <span class="iconfont icon-buy_in_store"></span>
+                <span class="item-preferance item-type">לרכישה מאתר למטייל</span>
+            </div>
+            <div class="preferance notes">
+                <span class="iconfont icon-edit"></span>
+				<!--<span ng-click="enterNote()" class="enter-note item-preferance item-type" ng-class="{'hideText':editNote == true || (editItem.comment !='' && editItem.comment != undefined)}" id="enter-note">הערות לעצמי</span>-->
+                <textarea ng-blur="textAreaBlur()" placeholder="הערות לעצמי" ng-model="noteTxt" rows="1"
+						  ng-change="addNewNote()" id="add-note" class="add-note item-type" type="text">{{editItem.comment}}</textarea>
+				<!--ng-focus="enterNote()"-->
+				<!--ng-class="{'showInput':editNote == true || (editItem.comment !='' && editItem.comment != undefined)}"-->
+            </div>
+        </div>
+    </div>
+    <div class="doubleCheck cAlCeAbs cPaAl10" ng-class="{'open' : showCustomCatPopup}">
+        <div class="doubleCheckHeade cMaTo10 cBoTx">קטגוריה אישית זו תהיה זמינה בעת יצירת רשימה חדשה</div>
+        <div class="removeButtunsArea">
+            <div class="caFl cTeCen cancelButtun" data-ng-click="closeCustomCatPopup()">אישור</div>
+        </div>
+    </div>
+    <div class="doubleCheck cAlCeAbs cPaAl10" ng-class="{'open' : showResetCatPopup}">
+        <div class="doubleCheckHeade cMaTo10 cBoTx">אתה בטוח שברצונך לשחזר את הרשימה?</div>
+        <div class="removeButtunsArea">
+            <div class="caFl cTeCen removeButtun" data-ng-click="resetAllCategoriesLists()">אישור</div>
+            <div class="caFl cTeCen cancelButtun" data-ng-click="showResetCatPopup =false">ביטול</div>
+        </div>
+    </div>
+	<!--App Tutorial-->
+    <div id="myOverlay" ng-show="show_myOverlay">
+        <div item-swipe id="itemTutorial" md-swipe-left="onSwipeTut()" md-swipe-right="onSwipeTut()">
+            <span class="iconfont "
+				  ng-class="{ 'iconfont icon-check_box checked ':  is_tutorialChecked , 'icon-check_box_outline_blank' : !is_tutorialChecked}"
+				  ng-click="tutorialMarkAsChecked()"></span>
+            <span class="item-checked item-type">{{tutorialExplain}}</span>
+            <span class="iconfont icon-info ng-scope" role="button" tabindex="0" ng-click="showEditTutorial()"></span>
+            <img src="img/finger.svg" height="50" width="50" id="finger"
+				 ng-class="{ 'point' :tuturialAction == 1, 'to-left point' : tuturialAction == 2 , 'swipe':tuturialAction == 3}"/>
+            <img src="img/cancle_icon.svg" alt="" ng-click="closeOverlay()" id="closeOverlay">
+        </div>
+    </div>
+	<!--Tutorial item edit-->
+    <div id="itemPage" class="itemPageTutorial" ng-show="showTutorialItemEdit">
+        <div class="item-header">
+            <div class="table" id="nameEdit">
+                <div id="closeTutorial" ng-click="closeEditTutorial()">
+                    <span class="iconfont icon-arrow_back back"></span>
+                </div>
+                <div class="item-title">
+            <span ng-show="!is_tutorialEditTitle" ng-click="is_tutorialEditTitle = !is_tutorialEditTitle"
+				  class="enter-item-name item-preferance item-title" id="enter-item-name">{{pageTitle}}
+                    </span>
+                    <input id="myItemName" ng-show="is_tutorialEditTitle" type="text" ng-model="pageTitle"
+						   ng-blur="is_tutorialEditTitle = !is_tutorialEditTitle; editTutorialExplain = 'שנה את מספר הפריטים' ">
+                </div>
+            </div>
+            <div id="deleteTutoriaBtn" ng-click="deleteItem()" class="trash">
+                <span class="iconfont icon-delete"></span>
+            </div>
+        </div>
+
+        <div id="tutorialEditDescription">
+            <div id="arrowUp"></div>
+            <h1>{{editTutorialExplain}}</h1>
+            <button id="nextBtnTutorial" ng-click="moveFinger()">הבא</button>
+        </div>
+        <div id="item">
+            <div class="item-number">
+                <span class="item-type item-type-text veTop" style="display: inline-block; line-height: 35px;">מספר פריטים</span>
+                <div class="item-number-input">
+                    <button id="tutorialMinBtn" class="item-btn minus caFr"
+							ng-click="tutorial_item = tutorial_item-1;editTutorialExplain ='לחץ לקביעת תזכורת חדשה'">
+                        <span class="minus-btn iconfont icon-remove"></span>
+                    </button>
+                    <span id="item-amount" class="item-amount">{{tutorial_item}}</span>
+                    <button class="item-btn plus " id="tutorialPlsBtn" ng-click="tutorial_item = tutorial_item+1;">
+                        <span class="plus-btn iconfont icon-add"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="preferance notification">
+                <datepickerdirective></datepickerdirective>
+                <span class="iconfont icon-access_alarm"
+					  ng-class="{'darkOrange':editItem.notification == true }"></span>
+                <span class="item-preferance item-type">תזכורת</span>
+                <span class="item-preferance item-type darkOrange" ng-show="editItem.notification == true">
+                    <span>{{editItem.dateToNotification}}</span>
+                    <span
+							ng-click="cancelReminder(editItem)" class="x"></span>
+                </span>
+                <input class="add-notification item-type" type="text" placeholder=""/>
+            </div>
+            <div class="preferance purchase" ng-if="editItem.link && editItem.link.length>0"
+				 ng-click="openLink(editItem.link)">
+                <span class="iconfont icon-buy_in_store"></span>
+                <span class="item-preferance item-type">לרכישה מאתר למטייל</span>
+            </div>
+            <div class="preferance notes">
+                <span class="iconfont icon-edit"></span>
+                <input placeholder="הערות לעצמי" ng-model="noteTxt" rows="1" ng-change="addNewNote()" id="add-note"
+					   class="add-note item-type" type="text" value="{{editItem.comment}}">
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .md-dialog-container {
+		background-color : rgba(0, 0, 0, 0.7);
+		z-index          : 100000;
+
+	}
+	.dtp-header.header {
+		display : none;
+	}
+</style>

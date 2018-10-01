@@ -1,0 +1,35 @@
+<div class="header" ng-hide="showItemPage || $state.includes('first-level-list') ">
+    <div class="main-header" ng-hide="$state.includes('new-trip') || $state.includes('activities')">
+        <div class="table">
+            <div class=""><img src="img/logo.png" id="logo" /></div>
+            <div>
+                <div class="writing_top">
+				    ציוד למטייל
+                </div>
+                <div class="writing_top" ng-if="mylist">
+				    - הרשימות שלי
+                </div>
+            </div>
+        </div>
+        <div class="header-icons" ng-hide="$state.includes('my-lists')"><!---->
+            <!--<span ng-click="openHeaderMenu()" class="iconfont icon-more_vert left_side vertical_dots"></span>-->
+            <span ng-click="sharePlace()" class="iconfont icon-share left_side top_share"></span>
+        </div>
+                    <!--<div class="header-menu">
+                        <ul>
+                            <li>הוספת פעילות</li>
+                            <li ng-click="unPackageAllCategories()">סימון הכל כ: לא נארז</li>
+                            <li>הסתרת הפריטים שסימנתי</li>
+                            <li>שחזור הרשימה לברירת המחדל</li>
+                            <li>מידע על היעד מאתר "למטייל"</li>
+                        </ul>
+                    </div>-->
+    </div>
+    <div class="new-list-header" ng-hide="$state.includes('my-lists') || $state.includes('item') || $state.includes('trip-list') || $state.includes('first-level-list')">
+        <div class="table">
+            <div class="back-btn-wrap" ng-click="backPressed()"><span class="iconfont icon-arrow_back back"></span></div>
+            <div class="new-list-title">{{$state.includes('activities') ? getTitle(): 'רשימה חדשה'  }}</div>
+        </div>
+    </div>
+</div>
+
