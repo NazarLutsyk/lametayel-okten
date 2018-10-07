@@ -82,9 +82,10 @@ lametayel.run(function ($rootScope, $state, $stateParams, $timeout, $http, serve
             // $rootScope.$broadcast('showPopup', { type: "inappBrowser" });
         } else {
             var url = decodeURIComponent(link);
-            if (isIOS)
-                location.href = url;
-            else
+            cordova.InAppBrowser.open(url,'_blank','location=yes');
+            // if (isIOS)
+            //     location.href = url;
+            // else
                 window.open(url, '_blank');
         }
     }
