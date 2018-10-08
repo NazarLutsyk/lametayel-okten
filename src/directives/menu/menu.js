@@ -69,7 +69,7 @@ lametayel.directive('menu', ['$state', '$rootScope', '$timeout', 'pushnotificati
             }
 
             scope.shareFreind = function () {
-                str = 'השתמשתי באפליקציה של למטייל, ממליץ לכם גם :)';
+                str = 'השתמשתי באפליקציה של למטייל ליצירת רשימת ציוד לטיול, ממליץ לך גם :)\n' + 'http://onelink.to/m2fn5a';
                 console.log(str);
                 share.share({ title: str })
                 //$rootScope.$broadcast('shareList',{data:str});
