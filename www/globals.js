@@ -80,14 +80,11 @@ lametayel.run(function ($rootScope, $state, $stateParams, $timeout, $http, serve
             localStorage.setItem("firstTime", "true");
             $rootScope.urlToGo = link;
             // $rootScope.$broadcast('showPopup', { type: "inappBrowser" });
-        } else {
-            var url = decodeURIComponent(link);
-            cordova.InAppBrowser.open(url,'_blank','location=yes');
-            // if (isIOS)
-            //     location.href = url;
-            // else
-                window.open(url, '_blank');
         }
+
+        var url = decodeURIComponent(link);
+        cordova.InAppBrowser.open(url, '_blank', 'location=yes');
+
     }
 
     $rootScope.goToLink = function () {
