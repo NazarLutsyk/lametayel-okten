@@ -70,7 +70,6 @@ lametayel.directive('menu', ['$state', '$rootScope', '$timeout', 'pushnotificati
 
             scope.shareFreind = function () {
                 str = 'השתמשתי באפליקציה של למטייל, ממליץ לכם גם :)';
-                console.log(str);
                 share.share({ title: str })
                 //$rootScope.$broadcast('shareList',{data:str});
             }
@@ -118,14 +117,18 @@ lametayel.directive('menu', ['$state', '$rootScope', '$timeout', 'pushnotificati
             }
 
             scope.gradeUs = function () {
+              try {
                 if (isIOS) {
-                    window.open('itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1164928192&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software', '_blank');
-                    location.href = 'itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1164928192&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software';
+                  window.open('itms-apps://itunes.apple.com/us/app/domainsicle-domain-name-search/id1164928192?ls=1&mt=8');
+
                 }
                 //android market link
                 else {
-                    window.open("market://details?id=com.cambium.lamtayelAriza", '_blank')
+                  window.open("market://details?id=com.cambium.lamtayelAriza", '_system')
                 }
+              } catch (e) {
+                console.log(e);
+              }
             }
 
 
@@ -135,6 +138,10 @@ lametayel.directive('menu', ['$state', '$rootScope', '$timeout', 'pushnotificati
                  scope.closeMenu();
            //     analytics.sendAnalyticsEvent('event', 'New_List_Btn')
             }
+
+          scope.matest = function () {
+            window.open("mailto:service@lametayel.co.il?Subject=אשמח שתיצרו איתי קשר!&body=!", '_system')
+          }
 
 
 

@@ -1,79 +1,80 @@
 <div ng-hide="$state.includes('new-trip') || $state.includes('activities') || $state.includes('item') ">
-    <div id="menu-btn" data-ng-click="showMenuFunc($event)">
-        <span class="iconfont icon-menu" ng-if="showMenu==false"></span>
-        <span class="iconfont icon-arrow_back" class="close-btn" ng-if="showMenu==true"></span>
-    </div>
-    <div id="menu" class="menu-open" ng-class="{'openMenu':showMenu}" ng-hide="$state.includes('new-trip')">
-        <div class="menu-mask"></div>
+  <div id="menu-btn" data-ng-click="showMenuFunc($event)">
+    <span class="iconfont icon-menu" ng-if="showMenu==false"></span>
+    <span class="iconfont icon-arrow_back" class="close-btn" ng-if="showMenu==true"></span>
+  </div>
+  <div id="menu" class="menu-open" ng-class="{'openMenu':showMenu}" ng-hide="$state.includes('new-trip')">
+    <div class="menu-mask"></div>
 
-        <div class="menu-wrap" ng-class="{'openMenu':showMenu}">
+    <div class="menu-wrap" ng-class="{'openMenu':showMenu}">
 
-            <div class="menu-items-wrap" ng-if="setting==false">
-                <div class="menu-item-wrap" ng-click="goToList()">
-                    <div class="menu-img"><span class="iconfont icon-playlist_add_check"></span></div>
-                    <div class="menu-item-name">הרשימות שלי</div>
-                </div>
-                 <div class="menu-item-wrap" ng-click="makeNewTrip()">
-                    <div class="menu-img"><span class="iconfont icon-playlist_add"></span></div>
-                    <div class="menu-item-name">יצירת רשימה חדשה</div>
-                </div>
-
-                <div class="menu-item-wrap" ng-click="openSetting()">
-                    <div class="menu-img"><span class="iconfont icon-settings"></span></div>
-                    <div class="menu-item-name">הגדרות</div>
-                </div>
-                <div class="menu-item-wrap stores">
-                    <div class="menu-img"><span class="iconfont icon-stores"></span></div>
-                    <a target="_blank" href="http://www.lametayel.co.il/stores/">
-                        <div class="menu-item-name">חנויות "למטייל"</div>
-                    </a>
-
-                </div>
-                <div class="menu-item-wrap" data-ng-click="shareFreind()">
-                    <div class="menu-img"><span class="iconfont icon-share"></span></div>
-                    <!--<a target="_blank" href="#" >-->
-                    <div class="menu-item-name">ספר לחבר</div>
-                    <!--</a>-->
-                </div>
-                <div class="menu-item-wrap">
-                    <div class="menu-img"><span class="iconfont icon-mail"></span></div>
-                     <a target="_blank" href="mailto:service@lametayel.co.il?Subject=אשמח שתיצרו איתי קשר!&body=!"><div class="menu-item-name">צור קשר</div></a>
-                </div>
-                <div  class="menu-item-wrap" ng-click="gradeUs()">
-                    <div class="menu-img"><span class="iconfont icon-star"></span></div>
-                    <div class="menu-item-name">דרג אותנו</div>
-                </div>
-            </div>
-            <div class="menu-items-wrap" ng-if="setting==true">
-                <div class="setting-section setting-headlie">
-                    <span ng-click="back()" class="iconfont icon-keyboard_arrow_right"></span>
-                    <span class="settig-title">הגדרות</span>
-                </div>
-
-                <div class="setting-section font-size">
-                    <span class="inline-block title">גודל פונט</span>
-                    <span class="large-size inline-block">א</span>
-                    <div class="inline-block range">
-                        <div data-range-slider data-floor="0" data-ceiling="2" data-step="1" data-precision="2" data-highlight="left" data-ng-model="fontSize[0].value" data-dragstop="false">
-                        </div>
-                    </div>
-                    <span class="small-size inline-block">א</span>
-                </div>
-                <div class="setting-section item-setting">
-                    <p>פריטים שסימנתי</p>
-                    <div class="setting-mark">
-                        <span ng-click="selectSetting('endOfList')" class="iconfont" ng-class="{'icon-radio_button_unchecked':checkedListSetting != 'endOfList','icon-radio_button_checked':checkedListSetting == 'endOfList'}"></span><span>להעביר לסוף הרשימה</span>
-                    </div>
-                    <div class="setting-mark">
-                        <span ng-click="selectSetting('samePlace')" class="iconfont" ng-class="{'icon-radio_button_unchecked':checkedListSetting != 'samePlace','icon-radio_button_checked':checkedListSetting == 'samePlace'}"></span><span>להשאיר במיקום נוכחי</span>
-                    </div>
-                </div>
-
-                <div class="setting-section terms-of-use">
-                    תנאי שימוש
-                </div>
-
-            </div>
+      <div class="menu-items-wrap" ng-if="setting==false">
+        <div class="menu-item-wrap" ng-click="goToList()">
+          <div class="menu-img"><span class="iconfont icon-playlist_add_check"></span></div>
+          <div class="menu-item-name">הרשימות שלי</div>
         </div>
+        <div class="menu-item-wrap" ng-click="makeNewTrip()">
+          <div class="menu-img"><span class="iconfont icon-playlist_add"></span></div>
+          <div class="menu-item-name">יצירת רשימה חדשה</div>
+        </div>
+
+        <div class="menu-item-wrap" ng-click="openSetting()">
+          <div class="menu-img"><span class="iconfont icon-settings"></span></div>
+          <div class="menu-item-name">הגדרות</div>
+        </div>
+        <div class="menu-item-wrap stores">
+          <div class="menu-img"><span class="iconfont icon-stores"></span></div>
+          <a target="_blank" href="http://www.lametayel.co.il/stores/">
+            <div class="menu-item-name">חנויות "למטייל"</div>
+          </a>
+
+        </div>
+        <div class="menu-item-wrap" data-ng-click="shareFreind()">
+          <div class="menu-img"><span class="iconfont icon-share"></span></div>
+          <!--<a target="_blank" href="#" >-->
+          <div class="menu-item-name">ספר לחבר</div>
+          <!--</a>-->
+        </div>
+        <div class="menu-item-wrap">
+          <div class="menu-img"><span class="iconfont icon-mail"></span></div>
+          <!--<a target="_blank" href="mailto:service@lametayel.co.il?Subject=אשמח שתיצרו איתי קשר!&body=!"><div class="menu-item-name">צור קשר</div></a>-->
+          <div ng-click="matest()" class="menu-item-name">צור קשר</div>
+        </div>
+        <div  class="menu-item-wrap" ng-click="gradeUs()">
+          <div class="menu-img"><span class="iconfont icon-star"></span></div>
+          <div class="menu-item-name">דרג אותנו</div>
+        </div>
+      </div>
+      <div class="menu-items-wrap" ng-if="setting==true">
+        <div class="setting-section setting-headlie">
+          <span ng-click="back()" class="iconfont icon-keyboard_arrow_right"></span>
+          <span class="settig-title">הגדרות</span>
+        </div>
+
+        <div class="setting-section font-size">
+          <span class="inline-block title">גודל פונט</span>
+          <span class="large-size inline-block">א</span>
+          <div class="inline-block range">
+            <div data-range-slider data-floor="0" data-ceiling="2" data-step="1" data-precision="2" data-highlight="left" data-ng-model="fontSize[0].value" data-dragstop="false">
+            </div>
+          </div>
+          <span class="small-size inline-block">א</span>
+        </div>
+        <div class="setting-section item-setting">
+          <p>פריטים שסימנתי</p>
+          <div class="setting-mark">
+            <span ng-click="selectSetting('endOfList')" class="iconfont" ng-class="{'icon-radio_button_unchecked':checkedListSetting != 'endOfList','icon-radio_button_checked':checkedListSetting == 'endOfList'}"></span><span>להעביר לסוף הרשימה</span>
+          </div>
+          <div class="setting-mark">
+            <span ng-click="selectSetting('samePlace')" class="iconfont" ng-class="{'icon-radio_button_unchecked':checkedListSetting != 'samePlace','icon-radio_button_checked':checkedListSetting == 'samePlace'}"></span><span>להשאיר במיקום נוכחי</span>
+          </div>
+        </div>
+
+        <div class="setting-section terms-of-use">
+          תנאי שימוש
+        </div>
+
+      </div>
     </div>
+  </div>
 </div>

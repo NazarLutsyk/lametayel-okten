@@ -3,6 +3,13 @@
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular",
-  "pro_id": "9d6cb347"
+  "type": "ionic1",
+  "pro_id": "9d6cb347",
+  "id": "9d6cb347",
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }

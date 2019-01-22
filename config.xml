@@ -2,23 +2,23 @@
 <widget id="com.cambium.lametayelArizaProd" version="1.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>lametayelAriza</name>
     <description>
-      טיול זה אושר אמיתי, אבל רגע לפני הכיף מחכה משימה קשה במיוחד - האריזה.
-      אז אל תשברו את הראש ותנו לנו לעשות לכם סדר!
-      אפליקציה חדשה וחינמית של "למטייל", שבשניות תרכיב ותתאים לכם באופן אישי את רשימת הציוד לטיול.
-      אז בין אם אתם מתכננים טיול עירוני ללונדון, טיול תרמילאי לדרום אמריקה או לטרק בשביל ישראל, תנו לנו לעשות את העבודה
-      וליצור לכם רשימת ציוד לפי היעד, מזג האוויר ואופי הטיול.
-      מהיום אורזים מהר ובקלות, ולא שוכחים כלום בבית...
-          	התאמת הרשימה לפי כמות האנשים
-          	הוספה של מס' בלתי מוגבל של פריטים
-           	הוספת קטגוריות חדשות
-          	הוספת הערות אישיות
-          	תזכורות וטיפים חשובים לפני הטיול
-          	שיתוף של הרשימה עם החברים
-      צאו לטיול שלכם עם כל הניסיון שלנו!
-    </description>
+    טיול זה אושר אמיתי, אבל רגע לפני הכיף מחכה משימה קשה במיוחד - האריזה.
+    אז אל תשברו את הראש ותנו לנו לעשות לכם סדר!
+    אפליקציה חדשה וחינמית של "למטייל", שבשניות תרכיב ותתאים לכם באופן אישי את רשימת הציוד לטיול.
+    אז בין אם אתם מתכננים טיול עירוני ללונדון, טיול תרמילאי לדרום אמריקה או לטרק בשביל ישראל, תנו לנו לעשות את העבודה
+    וליצור לכם רשימת ציוד לפי היעד, מזג האוויר ואופי הטיול.
+    מהיום אורזים מהר ובקלות, ולא שוכחים כלום בבית...
+    התאמת הרשימה לפי כמות האנשים
+    הוספה של מס' בלתי מוגבל של פריטים
+    הוספת קטגוריות חדשות
+    הוספת הערות אישיות
+    תזכורות וטיפים חשובים לפני הטיול
+    שיתוף של הרשימה עם החברים
+    צאו לטיול שלכם עם כל הניסיון שלנו!
+  </description>
     <author email="jonathanl@lametayel.co.il">
-        jonathanl@lametayel.co.il
-    </author>
+    jonathanl@lametayel.co.il
+  </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
@@ -53,6 +53,7 @@
     <gap:plugin name="org.apache.cordova.media" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="cordova-plugin-socialsharing" source="npm" />
+    <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <access origin="*" />
@@ -64,7 +65,10 @@
     <allow-intent href="geo:*" />
     <allow-navigation href="*" />
     <platform name="android">
-        <allow-intent href="market:*" />
+        <feature name="SocialSharing">
+            <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+        </feature>
+        <allow-intent href="market:*" launch-external="yes" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
@@ -85,8 +89,11 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
+        <feature name="SocialSharing">
+            <param name="ios-package" value="SocialSharing" />
+        </feature>
+        <allow-intent href="itms:*" launch-external="yes" />
+        <allow-intent href="itms-apps:*" launch-external="yes" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
         <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
         <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
@@ -143,6 +150,9 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreenDelay" value="3000" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.1+" />
+    </plugin>
     <engine name="browser" spec="~4.0.0" />
     <engine name="ios" spec="~4.0.1" />
     <engine name="android" spec="^7.1.1" />
